@@ -1,0 +1,89 @@
+Agile 
+1.Individual and interactions
+2.working software
+3.Customer collaboration
+4.Responding to a change
+
+
+
+Principles of Agile Manifesto
+1.Customer Focus
+2.Collaboration
+3.Product in Focus
+
+
+User Story -
+user story is a brief description of a small functionality 
+required by the user and described from users viewpoint.
+
+just enough information
+more talking and less writing
+support iterative development
+
+
+
+user stories vs requirement
+
+Ex - whatsapp messenger 
+
+
+user story look like -
+1.sticky notes-format : As a(user role) , I want to(activity) , so that (value)
+
+
+persona Concept-
+means the type of user and a user type is decided based on the way the user interacts with the system,
+
+
+technical user story- 
+stories which are invisible to the end user but required to be done to realize the business value.
+1.Architecture 
+2.PoC
+3.Refactoring the code base to manage changing requirement
+4.Dev/Test env bring up
+5.performance testing /Security
+
+
+#user story splitting 
+
+1.workflow assumptions - assumptions 
+2.Business rule or technology or platform variations -google play vs app store 
+3.Major effort - one to one vs broadcast 
+4.Simple/complex - start from simple to complex- exit grp -> delete media
+5.variation in data - send graphical msg - emogi -> gif ->stickers
+6.Data entry methods - share picture 
+7.deferred system qualities -one-to-one video call , grp video call
+
+8.Operations - create , update , delete 
+9.Use Case scenario - msg last seen , status ,block
+10.Break-out spike - web version of whatsapp
+
+
+#story point -estimate 
+estimation poker -its relative  not absolute
+
+
+
+
+
+----------------------------Lambda function -------------------------------
+to implement functional interfaces (SAM)
+
+runnable 
+comparator 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
