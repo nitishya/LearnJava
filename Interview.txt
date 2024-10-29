@@ -1,0 +1,120 @@
+1. Service annotation 
+2. Volatile Keyword 
+3. Basic Workflow of springboot
+4. Private and Protected 
+5. Multithreading 
+6. Synchronized Keyword 
+7. Hashmap 
+8. Primary Key and Foreign Key 
+9. Junit 
+10. Put Post Get
+11. Diff between rest controller and controller 
+12. Functional Interface 
+13. Method Overloading and Method Overriding 
+14. Oops Concept
+15. Exceptional Handling with examples 
+16. Collections 
+17. Types of collections 
+18. String, stringbuffer , stringbuilder 
+19. Stream api , lambda function 
+
+
+
+
+-----
+
+
+
+coding ---
+public Class A{
+ 
+private void m1(String s){
+System.out.print(s)
+}
+ 
+public abstract void add(Integer s){
+System.out.print(s)
+}
+ 
+}
+ 
+ 
+public void m1(String s){
+System.out.print(s)
+}
+ 
+}
+ 
+public Class B extends A{
+ 
+public static void main(String [] args){
+m1();
+}
+
+
+departmnet - sales >50000
+
+
+list<String> emp = List.of(rahul,shyam...)
+stream
+--------------------------------------------------------
+public void m1(){
+integer a ;
+
+
+try{
+ 
+// Implemention
+}
+catch(RuntimeExcetion e){
+ 
+System.out.print("RuntimeExcetion");
+ 
+}
+catch(NullpointerException ex){
+ 
+System.out.print("NullpointerException");
+ 
+}
+ 
+catch(ArtithmaticException ex){
+ 
+System.out.print("ArtithmaticException");
+ 
+}
+ 
+catch(ArrayIndexOutofBoundsException ex){
+ 
+System.out.print("ArrayIndexOutofBoundsException");
+ 
+}
+finally{
+System.out.print("finally");
+}
+}
+
+-------------------------------------------
+public Class A{
+ 
+public void m1(String s){
+System.out.print(s)
+}
+ 
+public abstract void add(Integer s){
+System.out.print(s)
+}
+ 
+}
+ 
+ 
+public void m1(String s){
+System.out.print(s)
+}
+ 
+}
+ 
+public Class B extends A{
+ 
+public static void main(String [] args){
+m1();
+}
