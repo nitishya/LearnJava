@@ -1,0 +1,82 @@
+------------application.yml------------------
+
+server:
+   port:9891
+
+eureka:
+ client:
+    service-url
+
+dialect - used to convert the orm based language to mysql based query 
+
+
+findAll  to --> database specific language 
+
+
+add restaurantdb in mysql
+
+
+hibernate - created 2 table - restaurant and 
+  hibernate_squesnce to give next id 
+
+discovery client
+
+
+public RestaurantDTO addRestaurantInDB(RestaurantDTO restaurantDTO){
+Restaurant savedRestaurant = restaurantRepo.save(RestaurantMapper.INSTANCE.mapRestaurantDTOToRestaurant(restaurantDTO));
+return RestaurantMapper.INSTANCE.mapRestaurantDTO(savedRestaurant);
+}
+
+
+public ResponseEntity<RestaurantDTO> fetchRestaurantById(Integer id){
+Optional<Restaurant> restaurant = restaurantRepo.findById(id);
+if(restaurant.isPresent()){
+return new ResponseEntity<>(RestaurantMapper.INSTANCE.mapRestaurantToRestaurnatDTO(restaurant.get()),HttpStatus.OK);
+}
+return new Restaurant<>(null, HttpStatus.NOT_FOUND);
+}
+
+
+userdetail microservice 
+
+add dependency -- lombok , springweb , spring data jpa , Mysql Driver , Eureka Discovery client , mapstruct
+
+
+create packages - controller , service , repo , dto , mapper , entity 
+
+@entity
+@data
+@noargsconstructor
+@AllArgsConstructor
+public class  User{
+
+@Id
+private int userId;
+private String userName;
+private String userPassword ;
+private String address ;
+private String city ;
+}
+
+
+@restController 
+@requestMapping("/user")
+public class UserController {
+     @autowired
+     UserService userService;
+    
+     @PostMapping("/addUser")
+     public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO userDTO){
+   UserDTO savedUser = userService.addUser(userDTO);
+
+return new ResponseEntity<>(savedUser , HttpStatus.CREATED);
+}
+
+
+
+
+-------food catalogue --
+ 
+
+
+ 

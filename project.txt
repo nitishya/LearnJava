@@ -1,0 +1,134 @@
+Rest - (represenctational State Transfer)
+HTTP - best use 
+
+spring boot 1-2 require java 8
+springboot 2-3 require java 8-17  spring 2.5.3
+springboot 3-   require java 17 above 
+
+
+ALL SHOULD MATCH -- JAVA build path , java compiler and the pom file version 
+of the project->properties 
+
+
+
+--------------pom file to be used ---------------
+<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.3</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.OrderFood</groupId>
+	<artifactId>FoodOrder</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>FoodOrderApp</name>
+	<description>Demo project for FoodOrder</description>
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+--------------------------------------------------------------------
+
+
+application .properties file--
+
+spring.application.name=FoodOrderApp
+spring.datasource.url=jdbc:mysql://localhost:3306/orderfooddb
+spring.datasource.username=root
+spring.datasource.password=root
+
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+
+----------------------------------------------------------------------------
+
+
+
+
+
+GET retrive all todos for a user 
+
+
+DELETE - Delete a  todo for a user 
+
+
+PUT - Edit/Update  a todo for a user 
+
+
+POST - Create a new TOdo for a user 
+
+
+
+
+
+Response Status ----
+200 - SUCCESS
+201 - CREATED 
+400 - BAD REQUEST
+401 - UNAUTHORIZED
+404 - RESOURCE NOT FOUND 
+500 - SERVER ERROR
+
+
+
+
+
+
+
+
+-------------------------------------Project Canteen ------------------------
+
+
+Create an ITem 
+
+get the details of item by item id
+
+get all the items
+
+withdraw an item 
+
+deposit an Item 
+
+delete the item 
+
+
+----------------------------------------------------------------------------------
+Skills required --
+
+develop AI services and enterprise specific services around generative AI with best IN-CLASS security 
+develop scalable infrastructure including microservices and backend for UI ,dashboard and other interactive application.
+participate in cloud native development involving identity,logging,tagging,limits,service gateway,private network and other infrastructure concepts
+participate in on-call duty and production operations on rotations
+
+
+
+proficient in java 
+good knowledge in bash 
+knowledge in sql
+comfortable in CI/CD and devOPs workstyle 
+familiar with test driven development with jenkins 
+knowledge of os 
+
+
