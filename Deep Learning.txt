@@ -1,7 +1,0 @@
-two LLMS - Base LLM , Instruction Tuned LLM 
-
-
-
-from IPython.display import display, HTML
-
-display(HTML(response))
