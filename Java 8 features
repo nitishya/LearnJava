@@ -1,0 +1,17 @@
+1) Lambda  Expresions 
+2) Functional Interfaces 
+3) Default methods in Interfaces 
+4) Static methods in Interfaces
+5) Predicate }
+6) Function  }---- predefined function in functional  interfaces 
+7) Consumer  }
+8) Method references and Constructor refernces By doublel colon (::) operator 
+9) Stream Api 
+10) Date and Time APi (Joda API )
+
+
+
+---------------------------------------------------------------------------------------------------------------
+why java 8 - to simplify the way of writing code. more clean code , more maintainable code 
+
+
