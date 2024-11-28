@@ -15,3 +15,77 @@
 why java 8 - to simplify the way of writing code. more clean code , more maintainable code 
 
 
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Streams in java 
+
+Java 8 streams and Java I/O Streams are different from each other.
+
+Java I/O Streams >> Working with files i.e. Reading and Writing 
+Java 8 Streams >> Processing and filtering data over different data Sources.
+
+
+Collections and Streams purpose also different from each others.
+
+Collections  >> Storing the data 
+Streams      >> Processing and Filtering data over different data sources.
+
+
+
+Definition of Streams ->
+Stream represent sequence of objects derived from a source (Arrays, COllections, IO resources ) over which aggregate operations can be performed .
+Technically Stream is Typed Interface which means that stream can be defined for any kind of objects , Stream of characters , Stream of employees/customer/cities.
+
+Characterstics of Streams ->
+
+Element Sequence -> Stream provide a set of elements of particular type in seqential manner.The Stream gets an element on demand and never store an item.
+Source -> Stream can take the data from different sources such as Collection , Arrays , I/O Resources etc.
+Aggregate Operations -> Streams support aggregate operations such as forEach, filter , Map , Sorted and so on .
+Automated Iterations -> Stream operations carry out iterations internally over the sources of elements as opposed to collections where explicit iteration is required.
+
+
+How to get stream object -> just by calling the stream method on collection object.
+
+
+Different ways to create Stream Object 
+
+1) Creating empty Stream object which allowed to string values only 
+   Stream <String> names = Stream.empty();
+
+2) Creating stream object from collection Object
+   Collection<String> names = Arrays.asList("Mahesh","Suresh","Ramesh");
+   Stream nameStream = names.stream();
+
+3) Creating stream object from Array
+   String[] arr = new String[]{"a","b","c"};
+   Stream<String> streamOfArrayFull = Arrays.stream(arr);
+
+4) We can create Stream object by using builder method 
+   when builder is used , the desired type should be additionally specified in the right part of the statement, otherwise the build() method will create an instance of the 
+   Stream<Object>:
+   Stream<String> nameStream = Stream.<String>builder()
+                               .add("a")
+                               .add("b")
+                               .add("c")
+                               .build()
+
+
+In a java program we can perform 2 Kind of operation 
+
+<a href="the-url-you-want-to-go-when-image-is-clicked.com" />
+<img src="https://javagoal.com/wp-content/uploads/2020/01/22-1.jpg" />
+![alt text](https://javagoal.com/wp-content/uploads/2020/01/22-1.jpg)
+
+
+
+
+
+
