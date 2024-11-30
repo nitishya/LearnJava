@@ -13,7 +13,47 @@
 
 ---------------------------------------------------------------------------------------------------------------
 why java 8 - to simplify the way of writing code. more clean code , more maintainable code 
+           -> To utilize functional programmming 
+           -> To enable parallel programming 
 
+
+
+----------------------------------------------------------------------------------------------------------------
+
+what is Lambda expression - lambda expression is annonymous function.
+
+Lambda Expressions -> anonymous function ,nameless function
+                   -> points to remember - not having name 
+                                         - not having modifiers 
+                                         - not having return type
+
+   public❌ void❌ m1❌(){                      |
+     System.out.println("Hello");                |   --   ()->{ System.out.println("Hello");}
+   }                                             |
+
+it is very easy ...if you know java method.
+
+	public❌ void❌ add❌(int a,int b) {             |
+		System.out.println(a+b);                        |-   (int a, int b) ->{System.out.println(a+b);};
+	}                                                  |    based on situation compiler can guess the output type k/a Type Inference
+                                                      |    (a,b)->System.out.println(a+b);
+
+   public❌ int❌ getLength❌(String s){             |
+      return s.length();                              |    ---> (String s) -> {return s.length();}
+   }                                                  |         (s)->return s.length()  
+                                                      |         \
+(s)->s.length()
+
+why Lambda expression -> To enable functional programming in java 
+                      -> Write more readable , maintainable and consize code 
+                      ->To use APIs very easily and effectively.
+                      ->To enable parallel processing.
+
+
+public void m(){                |
+ sys("Hello");                  |    ->  ()-> {sys("hello")} ;   => () -> sys("hello");
+}                               |        if only one statement is there we can skip curly braces.
+             
 
 
 
