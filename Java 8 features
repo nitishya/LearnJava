@@ -56,6 +56,33 @@ public void m(){                |
 }                               |        if only one statement is there we can skip curly braces.
              
 
+Characterstics/properties of lambda expression-
+1.A lambda expression can  take any number of parameters.
+2.If multiple parameters present then these parameters should be seperated with ,
+3.If only one parameter available then parameter are optional.
+4.Usually we specify the type of parameter if compiler expect the type based on content, then we can remove type [k/a Type Inference]
+5.Similar to method body, Lambda expression body can contain any number of any muber of statements.If multiple statements are there then we should enclose with curly braces.
+6.If body contains only one statement then curly braces are optional.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Functional Interface -> To invoke the lambda function we require functional Interface.
+                     -> If the interface contain only one abstract method then that interface is called Fuctional Interface.
+
+example - Runnable   -> contains only one method run().
+        - Callable   -> conatins only one method call().
+        - ActionListener -> contains only  one method actionPerformed().
+        - Comparable  -> contains only one method compareTo() 
+
+Rule if applicable only for abstract methods. How Many abstract methods - only one.
+How many default methods can we take - any number of default methods.
+How many static methods can we take - any number of static methods.
+
+
+@FunctionalInterface ->To indicate the compiler that this will be functional interface bymistake if two abstract method creates than it will show Compile Time Error.
+
+
 
 
 
