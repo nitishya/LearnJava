@@ -80,8 +80,22 @@ How many default methods can we take - any number of default methods.
 How many static methods can we take - any number of static methods.
 
 
-@FunctionalInterface ->To indicate the compiler that this will be functional interface bymistake if two abstract method creates than it will show Compile Time Error.
+@FunctionalInterface ->To indicate the compiler that this will be functional interface by mistake if two abstract method creates than it will show Compile Time Error.
 
+        @FunctionalInterface
+	interface Interf{
+		public void m1();
+		
+		default void m2() {
+			
+		}
+		
+		public static void m3() {
+			
+		}
+		
+	}
+l
 
 
 
