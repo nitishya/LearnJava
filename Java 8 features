@@ -41,8 +41,9 @@ it is very easy ...if you know java method.
    public❌ int❌ getLength❌(String s){             |
       return s.length();                              |    ---> (String s) -> {return s.length();}
    }                                                  |         (s)->return s.length()  
-                                                      |         \
-(s)->s.length()
+                                                      |         (s)->s.length()
+                                                      |          s->s.length()
+
 
 why Lambda expression -> To enable functional programming in java 
                       -> Write more readable , maintainable and consize code 
@@ -54,6 +55,8 @@ public void m(){                |
  sys("Hello");                  |    ->  ()-> {sys("hello")} ;   => () -> sys("hello");
 }                               |        if only one statement is there we can skip curly braces.
              
+
+
 
 
 
