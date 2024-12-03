@@ -98,10 +98,75 @@ How many static methods can we take - any number of static methods.
 l
 
 
+------Functional Interface with respect to inheritance -----
+
+Case 1) IF an interface extends functional Interference and the child Interface does not contain any abstract method , then child interface is always functional interface.
+
+Case 2) In the child Interface we can define exactly same parent interface abstract method .
+
+Case 3) In the child interface we cant define any new abstract method if it is annotated as @functional Interface otherwise it will get Compilation Error.
+
+Case 4) In the child interface we can define any new abstract method it is valid.
 
 
 
+Implementation -- 
 
+1) without Lmabda expression 
+
+interface Interf{
+public void m1();
+}
+
+class Demo implements Interf
+{
+ public void m1()
+{    sys( m1() method implementation)
+}
+}
+
+class Test {
+ public static void main(String() args)
+{
+    Interf i = new Demo();
+    i.m1();
+}
+}
+
+-------------------------EXECUTED CODE -------------------------------
+package collect;
+
+interface Interf{
+	public void m1();
+}
+
+public class LambdaDemo implements Interf {
+
+		public void m1() {
+			System.out.println("M1() method implemented");
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Interf i = new LambdaDemo();
+		i.m1();	
+	}
+}
+
+
+--------------------------------------------------------------------------------------
+2) with lamda expression
+
+interface Interf{
+public void m1();
+}
+
+class Test {
+ public void main (String() args)
+{
+    Interf i = () -> sys("m1 method implemented");
+}
+}
 
 
 
