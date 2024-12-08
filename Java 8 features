@@ -446,6 +446,144 @@ public class ArrayListDemo {
 }
 
 
+Now for TreeSet ---SOrting 
+if you want sorting order in Map than go for TreeMap -Key Value Pair is inserted according to sorting order
+TreeMap<Integer,String> k = new TreeMap<Integer,String>(); <-default natural sorting order
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Anonymous inner classes vs Lambda Expressions 
+
+1)wherever anonymous class we are using there may be a chance of using lambda expression 
+2) Nameless inner class = anoonymous inner class 
+Runnable r = new Runnable();   <--Gives the error 
+
+Runnable r = new Runnable()  <--No error , No name for implementation class such type of class is called as anonymous inner class 
+{
+    public void run()
+     {   ---
+     }
+}
+
+
+Every anonymous inner class can be replaced with lambda expression? --- > No 
+lambda expression not came for replacing the anonymous inner class.
+Anonymous inner class more powerful than lambda expression 
+
+features of anonymous inner class - >
+1) Anonymous inner class can extend concrete class.
+2) Anonymous inner class that extends abstract class.
+3) Anonymous inner class that implements an interface which contains multiple methods.
+4) Anonymous inner class that implements an interface with only one abstract method than that class can be replaced with lambda expression.
+
+Anonymous inner class != Lambda expression 
+
+This functionality also differ in Anonymous inner class and Lambda expression .
+
+Interface Interf{
+ public void m1();
+}
+class Test {
+  int x= 888;
+  public void m2(){
+   Interf i = new Interf()
+   {    int x = 999; } instance variable 
+       public void m1()
+       {   sys(This.x)  <-this refers to current inner class object only = 999
+           sys(Test.this.x) <-this refers to outer class object  = 888
+       }
+};
+} ; m1();
+
+public void main (String() args ){
+ Test t = new Test();
+ t.m2();
+  }
+}
+
+
+Inside Anonymous inner class it is posible to declare instance variable but inside lambda expression it is not possible to declare instance varibales.
+In the lambda expression  this always refers current object outer class only , but inside anonymous inner class , this always refers inner class only.
+
+-----------------------program code -----------------------------
+package collect;
+
+interface InterfD {
+    public void m1();
+}
+
+class AnonymousVsLambda {
+    int x = 888; // Outer class variable
+
+    public void m2() {
+        // Creating an anonymous inner class that implements InterfD
+        InterfD i = new InterfD() {
+            int x = 999; // Instance variable in the anonymous inner class
+
+            @Override
+            public void m1() {
+                // `this.x` refers to the instance variable of the anonymous inner class
+                System.out.println("this.x: " + this.x); // Output: 999
+
+                // `Test.this.x` refers to the `x` variable of the outer class (Test)
+                System.out.println("Test.this.x: " + AnonymousVsLambda.this.x); // Output: 888
+            }
+        };
+        i.m1(); // Call m1() method on the anonymous class instance
+    }
+
+    public static void main(String[] args) {
+        // Create an instance of Test and call m2
+    	AnonymousVsLambda t = new AnonymousVsLambda();
+        t.m2();
+    }
+}
+---------------now with lamba expression -------------
+package collect;
+
+interface InterfD {
+    public void m1();
+}
+class AnonymousVsLambda {
+    int x = 888; // Outer class variable
+    public void m2() {
+          InterfD i = ()->
+              {
+        	      int x = 999;
+        	      System.out.println(this.x);       //output = 888
+              };
+        i.m1(); // Call m1() method on the anonymous class instance
+    }
+    public static void main(String[] args) {
+        // Create an instance of Test and call m2
+    	AnonymousVsLambda t = new AnonymousVsLambda();
+        t.m2();
+    }
+}
+
+Difference between Anonymous inner class and Lambda expression 
+1-class without name                                                |
+2-can extend abstract class &concrete class                         |
+3-can implement interface with multiple abstract method             |
+4-Inside anonymous inner class , can declare instance variable      |
+5-Anonymous inner class can be instantiated                         |
+6-Inside AIC this refers to current AIC object                      |
+7-best option to handle multiple methods                            |
+8-
+
+
+
+Advantages of Lambda Expression - 
+1) handle functional programming in java.
+2) reduce length of the code so that readability will be improved.
+3) resolve the complexity of the anonymous  Inner class with some extent.
+4) can handle procedures/functions just like values .
+5) can pass procedures/function as arguments.
+6) easier to use updated APIs and Library.
+7) Enable support for parallel processing.
+
+
+
 
 
 
