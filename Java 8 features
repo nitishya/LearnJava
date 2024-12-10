@@ -646,7 +646,7 @@ interface Right{
 	    }	   
 }
 
-**Difference between Interface with Default Methods and Abstract Classes**
+** Difference between Interface with Default Methods and Abstract Classes **
 
 1)Inside interface every variable is always public,static and final            |  1)  Inside abstract class we can declare instance variables
   we can not declare instance variables.                                       |        which are required to child class.
