@@ -658,6 +658,45 @@ interface Right{
 
 
 
+Static Methods inside interface --
+from 1.8 onwards we can declare static methods inside interface .
+Static methods no way related to object.
+Interface also no way related to object.
+
+What is the need of defining static methods inside class 
+to define general utility methods.
+
+Demo Code --
+package collect;
+
+interface InterfaceS{
+	  public static void m1(){
+	    System.out.println("Interface static method");
+	    }
+	}
+
+	class InterfaceStaticDemo implements InterfaceS{
+	  public static void main(String[] Args){
+	    InterfaceStaticDemo s = new InterfaceStaticDemo();
+	   //no s.m1();   //by using implemented class object 
+	   //no  InterfaceStaticDemo.m1();  //by using class name 
+	    InterfaceS.m1();       //by using interface name-- Right 
+	 }  
+}
+
+
+overriding concept is not applicable for interface static method.
+before 1.7 we can't declare main method ,can't run interface directly from command prompt 
+
+inteface InterfaceM{
+   public static void main(String[] args){
+    System.out.println("Interface main method");
+   }
+}
+
+SO from 1.8 onwards we can run interface directly from the command prompt
+
+
 
 
 
