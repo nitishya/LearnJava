@@ -583,6 +583,79 @@ Advantages of Lambda Expression -
 7) Enable support for parallel processing.
 
 
+Default Methods inside interface ---------------------------
+
+before 1.7 every method inside interface are public and abstract .
+every variable inside interface is considered as public static final.
+
+after 1.8 version we can define concrete methods also inside interface.- called default methods 
+
+demo code -
+package collect;
+
+interface interfaceD{
+	default void m1() {
+		System.out.println("default method");
+	}
+}
+
+public class defaultMethodDemo implements interfaceD {
+	
+	public void m1() {
+		System.out.println("my own implementation");
+	}
+
+	public static void main(String[] args) {
+		defaultMethodDemo d = new defaultMethodDemo();
+		d.m1();
+	}
+
+}
+
+
+default methods wrt multiple inheritence --------
+if two implementated interface contains same method than
+1.we need to provide default implementation in the class to overcome this problem.
+2.or you can use Left.super.m1() ; to call the particular interface method.
+
+Demo COde -----
+package collect;
+
+interface Left{
+	   default void m1(){
+	     System.out.println("Left Default Method");
+	   }
+	}
+interface Right{
+	   default void m1(){
+	   System.out.println("Right Default Method");
+	   }
+	}
+
+	class DefaultInterfaceDemo implements Left,Right
+	{
+	    public void m1() {
+	      // System.out.println("My own implementation ");
+	    	Left.super.m1();
+	    }
+
+	   public static void main (String[] args )
+	    {
+	       DefaultInterfaceDemo d = new DefaultInterfaceDemo();
+	       d.m1();
+	    }	   
+}
+
+**Difference between Interface with Default Methods and Abstract Classes**
+
+1)Inside interface every variable is always public,static and final            |  1)  Inside abstract class we can declare instance variables
+  we can not declare instance variables.                                       |        which are required to child class.
+2)Interface never talks about state of object.                                 |  2)  Abstract class can talk about state of object.
+3)Inside interface we can't declare constructors.                              |  3)  Inside abstract classes we can declare constructors 
+4)Inside interface we can't declare instance and static blocks.                |  4)  Inside abstract classes we can declare constructors 
+5)Functional Interface with default methods can refer Lambda expression        |  5)  Abstract class can't refer Lambda expression.
+6)Inside interface we can't override object class methods.                     |  6)  Inside Abstract classes we can override object class methods.
+
 
 
 
