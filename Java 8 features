@@ -697,6 +697,69 @@ inteface InterfaceM{
 SO from 1.8 onwards we can run interface directly from the command prompt
 
 
+why default methods ?  
+without affecting implementation classes if we want to add new methods to the interface (extending interface functionality) .
+To define general utility methods inside interface with static 
+
+Predefined Functional Interfaces-----
+1)Predicate 
+2)Function 
+3)Consumer 
+4)Supplier 
+-----------------
+Two argument Predefined functional interfaces --
+1)BiPredicate 
+2)BiFunctional 
+3)BiConsumer 
+
+-------------------------------------
+Primitive Functional Interfaces :
+1)IntPredicate 
+2)IntFunction 
+3)IntConsumer 
+
+
+Predicate(I) ----- it is a boolean valued function 
+1)perform some conditional checks and returns true and false based on some conditions
+2)introduced in 1.8 version 
+3)in java.util.function
+4)test()
+
+interface Predicate<T>{
+  boolean test(T t);
+}
+
+public boolean test(Integer I)
+{
+  if(I>10){
+    return true ;
+   }
+   else {
+     return false;
+   }
+}
+
+Lambda expression 
+I->I>10;
+
+Predicate<Integer> P =I->I>10;
+System.out.println(P.test(100));
+
+Code Demo --
+package collect;
+import java.util.function.Predicate;
+public class predicateDemo {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Predicate<Integer> p = I->I>10;
+		System.out.println(p.test(100));  //true
+		System.out.println(p.test(5));  //false
+	}
+}
+
+
+
+
 
 
 
