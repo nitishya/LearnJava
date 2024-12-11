@@ -759,6 +759,99 @@ public class predicateDemo {
 
 
 
+Code Demo --
+package collect;
+import java.util.function.Predicate;
+public class CheckLength {
+
+	public static void main(String[] args) {
+		Predicate<String> p = s->s.length()>5;
+		System.out.println(p.test("abcdef")); //true 
+		System.out.println(p.test("abc"));  //false
+	}
+}
+
+
+Code Demo --
+package collect;
+
+import java.util.*;
+import java.util.function.Predicate;
+public class CheckIsEmpty {
+	public static void main(String[] args) {
+		Predicate<Collection> p = c -> c.isEmpty();
+		ArrayList l1 = new ArrayList();
+		l1.add("A");
+		System.out.println(p.test(l1));  //false 
+		
+		ArrayList l2 = new ArrayList();
+		System.out.println(p.test(l2));   //true 
+	}
+}
+
+
+Predicate inteface contains one method what is that method - test method what is its return type boolean 
+
+
+Predicate Joining -----
+1)p1-to check whether the given number greater than 10 or not.
+2)p2-given number is even number or not.
+
+p1.negate() <-opposite of the given predicate 
+p1.and(p2)  <-both conditions is checked 
+p1.or(p2)  <-atleast one condition should be satisfied
+
+negate() , and() , or()  <- default methods inside predicate 
+
+Demo code ---
+package collect;
+import java.util.function.Predicate;
+public class CombinePredicate {
+	public static void main(String[] args) {
+		int[] x = {0,5,10,15,20,25,30};
+		Predicate<Integer> p1 = i->i>10;
+		Predicate<Integer> p2 = i->i%2==0;
+		System.out.print("The numbers greater than 10 are :");
+		m1(p1,x);
+		System.out.println();
+		System.out.print("The even numbers are :");
+		m1(p2,x);
+		System.out.println();
+		System.out.print("The numbers not greater than 10 are:");
+		m1(p1.negate(),x);
+		System.out.println();
+		System.out.print("The numbers greater than 10 and are even numbers are :");
+		m1(p1.and(p2),x);
+	}	
+	public static void m1(Predicate<Integer>p,int[] x) {
+		for (int x1: x) {
+			if(p.test(x1))
+				System.out.print(x1);
+		}
+	}
+}
+
+
+program to diplay names started with 'k' by usung predicate --
+
+package collect;
+import java.util.function.Predicate;
+public class PredicateDemoforName {
+	public static void main(String[] args) {
+		String[] names = {"Sunny","Kajal","Mallika","Katrina","karina"};
+		Predicate<String> startsWithK = s->s.charAt(0)=='K';
+		System.out.println("The names starts with K are :");
+        for(String s:names) {
+        	if(startsWithK.test(s)) {
+        		System.out.println(s);
+        	}
+        }
+	}
+}
+
+
+
+
 
 
 
