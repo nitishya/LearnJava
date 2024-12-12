@@ -853,19 +853,29 @@ public class PredicateDemoforName {
 Remove null values and empty strings using Predicate -----------
 
 package collect;
+import java.util.ArrayList;
 import java.util.function.Predicate;
 
 public class CheckNullEmptyString {
 	public static void main(String[] args) {
-		String[] names = {"Durga"," ",null,"Ravi", " ","Shivam",null};		
-		Predicate<String> p=s->s!=null && s.length()!=0;
+		String[] names = {"Durga","",null,"Ravi","","Shivam",null};
+		
+		Predicate<String> p=s->s !=null && s.length()!=0;
+		ArrayList<String> l = new ArrayList<String>();
 		for(String s:names) {
 			if(p.test(s)) {
-				System.out.println(s);
+				l.add(s);
 			}
 		}
+		System.out.println("The list of valid strings are:");
+		System.out.println(l);
 	}
 }
+
+program for user authentication by using predicate------
+Predicate<User> P= user->user.username.equals("Nitish") && user.password.equals("java");
+Scanner s = new Scanner(System.in);
+
 
 
 
