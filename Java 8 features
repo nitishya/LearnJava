@@ -878,6 +878,48 @@ Scanner s = new Scanner(System.in);
 
 
 
+program for software engineer whether he is allowed i pub or not ----
+package collect;
+
+import java.util.function.Predicate;
+
+class SoftwareEngineer{
+	String name ;
+	int age ;
+	boolean isHavingGf;
+	SoftwareEngineer(String name, int age, boolean isHavingGf){
+		this.name = name ;
+		this.age = age ;
+		this.isHavingGf = isHavingGf;
+	}	
+	public String toString() {
+		return name ;
+	}
+}
+
+public class CheckSoftwareEngineer {
+
+	public static void main(String[] args) {
+		SoftwareEngineer[] list = {new SoftwareEngineer("Nitish", 25, true),
+				                   new SoftwareEngineer("Rahul", 28, false),
+				                   new SoftwareEngineer("Raja",17,true),
+		                           new SoftwareEngineer("Ashwani",30,true),
+		                           new SoftwareEngineer("Ravi", 21, true)
+				                  };
+		
+		Predicate<SoftwareEngineer> allowed = se->se.age >=18 && se.isHavingGf;
+		for(SoftwareEngineer se:list) {
+			if(allowed.test(se)) {
+				System.out.println(se);
+			}
+		}
+	}
+}
+Employee Management Application -------------------------------------------
+
+
+
+
 
 
 
