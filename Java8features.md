@@ -1213,7 +1213,7 @@ public class FindSalaryFunction {
 }
 ```
 
-**Function Chaining**  -- andThan & compose
+**Function Chaining**  -- andThan & compose  & identity()
 ```
 package collect;
 import java.util.function.Function;
@@ -1233,7 +1233,63 @@ public class FunctionChaining {
 }
 ```
 ---
+**Consumer**
+- want a function to consume a value only
+- interface Consumer<T>{  accept(){} }
+```
+package collect;
+import java.util.function.Consumer;
 
+public class ConsumerDemo {
+	public static void main(String[] args) {
+	    Consumer<String> c=s->System.out.println(s);
+	    c.accept("Hello");
+	    c.accept("Nitish");
+	}
+}
+```
+
+Program to display movie information using consumer --
+```
+package collect;
+
+import java.util.ArrayList;
+import java.util.function.Consumer;
+
+class Movie{
+	String name ;
+	String hero ;
+	String heroine ;
+	Movie(String name,String hero, String heroine){
+		this.name = name;
+		this.hero = hero;
+		this.heroine = heroine;
+	}
+}
+public class ShowMovie {
+	public static void main(String[] args) {
+		ArrayList<Movie> l = new ArrayList<>();
+		populate(l);
+		Consumer<Movie> c = m->{
+			System.out.println("Movie Name :"+m.name);
+			System.out.println("Movie Hero :"+m.hero);
+			System.out.println("Movie Heroine :"+m.heroine);
+			System.out.println();
+		};
+		
+		for(Movie m: l) {
+			c.accept(m);
+		}
+	}
+	
+	public static void populate(ArrayList<Movie> l) {
+		l.add(new Movie("Bahubali" ,"Prabahas","Anushka"));
+		l.add(new Movie("Koi Mil Gya" ,"Ritik","Ana"));
+		l.add(new Movie("Ram" ,"Pra","Anushdfoka"));
+		l.add(new Movie("rakashak" ,"Salman","Anush"));
+	}
+}
+```
 
 
 
