@@ -1003,6 +1003,124 @@ public class EmpManagementApp {
 
 default static method in PRedicate is isEqual() override equal method is compulsary.
 
+---
+package collect;
+import java.util.function.Function;
+public class FunctionalInterfDemo {
+	public static void main(String[] args) {
+	   Function<String,Integer> f= s->s.length();
+	   System.out.println(f.apply("Nitish"));
+	   System.out.println(f.apply("Software"));
+	}
+}
+
+---
+package collect;
+import java.util.function.Function;
+
+public class FunctionDemo2 {
+	public static void main(String[] args) {
+		Function<Integer, Integer> f = n->n*n;
+		System.out.println("Square of 2:"+f.apply(2));
+		System.out.println("Square of 3:"+f.apply(3));
+	}
+}
+
+---
+difference between predicate and function interface 
+
+| Tables        | Predicate           | function |
+| ------------- |:-------------:| -----:|
+| 1 | To implement condition check go for predicate                               | To perform certain operation and to return some result we should go for function|
+| 2 | Predicate can take one parameter which represent input argument Predicate<T>|Function can take 2 parameters,input and return type Function<T,e> |
+| 3 |  Predicate interface defines one abstract method called test()              |Function interface defines one abstract method called apply() |
+| 4 |  public boolean test(T t)                                                   |   public R apply(T t) |
+| 5 |  Predicate can return only boolean value                                    |   Function can return any type of value |
+
+
+---
+Program to remove space present in the given string by using function 
+
+package collect;
+import java.util.function.Function;
+
+public class RemoveSpaceFunction {
+	public static void main(String[] args) {
+		String str = "Nitish is a senior software developer";
+		Function<String, String> f=s->s.replaceAll(" ","");
+		System.out.println(f.apply(str));
+	}
+}
+
+
+---
+Program to count space present in the given string by using function 
+package collect;
+import java.util.function.Function;
+
+public class CountNoOfSpaces {
+
+	public static void main(String[] args) {
+		String str = "Mera Joota Hai Japani";
+		Function<String,Integer> f=s->s.length()-s.replaceAll(" ","").length();
+		System.out.println(f.apply(str));
+	}
+}
+
+---
+Program to find the grade for students using funtion 
+
+package collect;
+import java.util.ArrayList;
+import java.util.function.Function;
+
+class Student{
+	String name;
+	int marks;	
+	Student(String name,int marks){
+		this.marks = marks;
+		this.name = name;
+	}
+}
+
+public class FindGradeFunction {
+	public static void main(String[] args) {
+		ArrayList<Student> l = new ArrayList<>();
+	    populate(l);
+	    Function<Student,String> f=s->{
+	    	int marks=s.marks;
+	    	if(marks>=80) {
+	    		return "A";
+	    	}else if(marks>=60) {
+	    		return "B";
+	    	}else if(marks>=50) {
+	    		return "C";
+	    	}else if(marks>=40) {
+	    		return "D";
+	    	}else {
+	    		return "Fail";  
+	    	}
+	    };
+		    
+	    for(Student s: l) {
+	    	System.out.println("Student Name:"+s.name);
+	    	System.out.println("Student Marks:"+s.marks);
+	    	System.out.println("Student Grade:"+f.apply(s));
+	    	System.out.println();
+	    }
+	}
+	public static void populate(ArrayList<Student> l) {
+		l.add(new Student("Sunny",100));
+		l.add(new Student("Bunny",65));
+		l.add(new Student("Chinny",55));
+		l.add(new Student("Vinny",45));
+		l.add(new Student("Pinny",25));
+	}	
+}
+
+
+
+
 
 
 
