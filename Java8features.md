@@ -1119,7 +1119,47 @@ public class FindGradeFunction {
 	}	
 }
 ```
+---
+Program to find total month salary of all Employee by using Function 
+```
+package collect;
+import java.util.ArrayList;
+import java.util.function.Function;
 
+class Employees{
+	String name ;
+	double salary;
+	Employees(String name, double salary){
+		this.name = name;
+		this.salary = salary;
+	}	
+	public String toString() {
+		return name+":"+salary;
+	}
+}
+public class FindSalaryFunction {
+	public static void main(String[] args) {
+		ArrayList<Employees> l = new ArrayList<Employees>();
+		populate(l);
+		System.out.println(l);
+		Function<ArrayList<Employees>,Double> f = l1 ->{
+			double total=0;
+			for(Employees e:l1) {
+				total=total+e.salary;			
+			}
+			return total;
+		};
+		System.out.println("The toal salary of this month:"+f.apply(l));
+	}	
+	public static void populate(ArrayList<Employees> l) {
+		l.add(new Employees("Sunny",1000));
+		l.add(new Employees("Bunny",3000));
+		l.add(new Employees("Chinny",3000));
+		l.add(new Employees("Vinny",4000));
+		l.add(new Employees("Pinny",5000));
+	}
+}
+```
 
 
 
