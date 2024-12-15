@@ -81,7 +81,7 @@ How many static methods can we take - any number of static methods.
 
 
 @FunctionalInterface ->To indicate the compiler that this will be functional interface by mistake if two abstract method creates than it will show Compile Time Error.
-
+```
         @FunctionalInterface
 	interface Interf{
 		public void m1();
@@ -96,7 +96,7 @@ How many static methods can we take - any number of static methods.
 		
 	}
 l
-
+```
 
 ------Functional Interface with respect to inheritance -----
 
@@ -134,8 +134,8 @@ class Test {
 }
 
 -------------------------EXECUTED CODE -------------------------------
+```
 package collect;
-
 interface Interf{
 	public void m1();
 }
@@ -152,11 +152,11 @@ public class LambdaDemo implements Interf {
 		i.m1();	
 	}
 }
-
+```
 
 --------------------------------------------------------------------------------------
 2) with lamda expression
-
+```   
 interface Interf{
 public void m1();
 }
@@ -168,15 +168,15 @@ class Test {
      i.m1()
 }
 }
-
+```
 
 Using lambda expression we dont need to write a separate class, just we can replace total implementation with lamda expression.
 To  invoke lambda expression we need Funtional Interface.
 
 
 2) Example 2-----without lambda 
+```
 package collect;
-
 interface Inter
 {
 	public void add(int a, int b);
@@ -200,10 +200,10 @@ public class lambdaDemo1 {
 		i.add(100, 200);
 	}
 }
-
+```
 -----------with lambda ---------------------------------
+```
 package collect;
-
 interface Inter
 {
 	public void add(int a, int b);
@@ -227,9 +227,10 @@ public class lambdaDemo1 {
 		i.add(100, 200);
 	}
 }
+```
 3. Example Demo 3---------
+```
 package collect;
-
 interface interfac{
 	public int  getLength(String s);
 	
@@ -251,11 +252,11 @@ public class LambdaDemo2 {
         System.out.println(i.getLength("without lambda"));
 	}
 }
-
+```
 
 ------with lambda -----------------------
+```
 package collect;
-
 interface interfac{
 	public int  getLength(String s);
 	
@@ -269,11 +270,11 @@ public class LambdaDemo2 {
         System.out.println(i.getLength("with lambda"));
 	}
 }
-
+```
 4. Lambda Demo 4----------
 without lambda --
+```
 package collect;
-
 interface in{
 	public int squareIt(int a);
 }
@@ -296,11 +297,11 @@ public class LambdaDemo3 {
 	}
 
 }
-
+```
 
 ----with lambda expressiion ------------
+```
 package collect;
-
 interface in{
 	public int squareIt(int a);
 }
@@ -314,14 +315,13 @@ public class LambdaDemo3 {
 
 	}
 }
-
+```
 ------------------------------------------------------------------------------------------------------------------------
 Two way to define a thread -
 1) To extend the thread class
 2) By implementing the runnable interface .
-
+```
 package collect;
-
 class myRunnable implements Runnable{
 	@Override
 	public void run() {
@@ -341,10 +341,10 @@ public class ThreadsDemo {
           }     
 	}
 }
-
+```
 now using Lambda Expression-------
+```
 package collect;
-
 public class ThreadsDemo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -360,7 +360,7 @@ public class ThreadsDemo {
           }     
 	}
 }
-
+```
 Ques- Why functional Interface should contain only one abstract method?
 Compiler will get confused while infering the type of functional interface as there are 2 abstract method.
 
@@ -378,8 +378,8 @@ Collection - represent a group of objects as single entity .
 
 
 comparator demo code - without using lambda 
+```
 package collect;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -394,12 +394,10 @@ class myComparator implements Comparator<Integer>{
 		}else if(o1<o2) {
 			return 1;
 		}else 
-		return 0;*/
-		
+		return 0;*/	
 		return (o1>o2)?-1:(o1<o2)?+1:0;
 	}	
 }
-
 public class ArrayListDemo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -418,11 +416,11 @@ public class ArrayListDemo {
 	}
 
 }
-
+```
 
 -----------------code with lambda expression ------------------
+```
 package collect;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -444,7 +442,7 @@ public class ArrayListDemo {
 	}
 
 }
-
+```
 
 Now for TreeSet ---SOrting 
 if you want sorting order in Map than go for TreeMap -Key Value Pair is inserted according to sorting order
