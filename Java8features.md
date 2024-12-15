@@ -1159,6 +1159,82 @@ public class FindSalaryFunction {
 }
 ```
 
+Program to increament salary using predicate ------------------------
+```
+package collect;
+import java.util.ArrayList;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
+class Employees{
+	String name ;
+	double salary;
+	Employees(String name, double salary){
+		this.name = name;
+		this.salary = salary;
+	}	
+	public String toString() {
+		return name+":"+salary;
+	}
+}
+public class FindSalaryFunction {
+	public static void main(String[] args) {
+		ArrayList<Employees> l = new ArrayList<Employees>();
+		populate(l);
+		
+		System.out.println("Before Increment:");
+		System.out.println(l);
+		
+		Predicate<Employees> p=e->e.salary<3500;
+		Function<Employees,Employees> f= e->{
+			e.salary=e.salary+477;
+			return e;
+		};
+		
+		System.out.println("After Increment:");
+		ArrayList<Employees> l1 = new ArrayList<>();
+		for(Employees e:l) {
+			if(p.test(e)) {
+				l1.add(f.apply(e));
+			}
+		}
+		System.out.println(l);
+		System.out.println("Employees with increamented salary:");
+		System.out.println(l1);
+	}		
+	
+	public static void populate(ArrayList<Employees> l) {
+		l.add(new Employees("Sunny",1000));
+		l.add(new Employees("Bunny",3000));
+		l.add(new Employees("Chinny",3000));
+		l.add(new Employees("Vinny",4000));
+		l.add(new Employees("Pinny",5000));
+	}
+}
+```
+
+**Function Chaining**  -- andThan & compose
+```
+package collect;
+import java.util.function.Function;
+
+public class FunctionChaining {
+
+	public static void main(String[] args) {
+		Function<String, String> f1=s->s.toUpperCase();
+		Function<String, String> f2=s->s.substring(0,9);
+		
+		System.out.println("The result of f1:"+f1.apply("AishwaryaAbhi"));
+		System.out.println("The result of f2:"+f2.apply("AishwaryaAbhi"));
+		System.out.println("The result of f1.andThen(f2):"+f1.andThen(f2).apply("AishwaryaAbhi"));
+		System.out.println("The result of f1.compose(f2):"+f1.compose(f2).apply("AishwaryaAbhi"));
+	}
+
+}
+```
+---
+
+
 
 
 
