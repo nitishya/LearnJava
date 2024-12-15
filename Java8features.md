@@ -1070,6 +1070,7 @@ public class CountNoOfSpaces {
 ---
 Program to find the grade for students using funtion 
 
+```
 package collect;
 import java.util.ArrayList;
 import java.util.function.Function;
@@ -1117,7 +1118,7 @@ public class FindGradeFunction {
 		l.add(new Student("Pinny",25));
 	}	
 }
-
+```
 
 
 
