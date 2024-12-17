@@ -1746,8 +1746,8 @@ public class StreamOfDemo {
 }
 ```
 
-     - for Arrays :
-         Double[] d = {10.0,10.1,10.2,10.3,10.4};
+      -  for Arrays :
+           Double[] d = {10.0,10.1,10.2,10.3,10.4};
 ```
 package collect;
 import java.util.stream.Stream;
