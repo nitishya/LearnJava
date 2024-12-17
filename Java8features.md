@@ -1532,14 +1532,158 @@ public class StreamDemo {
 	}
 }
 ```
+**Stream s = c.stream();** 
+- c-> Any collection object
+- stram() -> This method present inside collection interface as default method
+- Stream -> It is an interface present in java.util.stream package
+
+Steps - Configuration  1)Filter and 2) Map
+      - Processing 
+
+Difference between filter() and map()
+
+| Tables        | filter()        | map() |
+| ------------- |:-------------:| -----:|
+|  1      | Number of object is less than actual object | orginal and mapped objects both are same  |
+|  2    |      |   |
+|  3 | are neat      |    $1 |
+
+---
+Filtering ->
+ - If we want to filter elements from the collection based on some boolean condition,than we should go for filtering
+ - we can configure Filter by using filter() method of stream interface.
+ - public Stream filter(Predicate<T> t)  <-It can be boolean valued function or lambda expression
+ - Example: Stream s1=c.stream().filter(i->i/2 ==0);
+
+Mapping  ->
+ - If we want to create a separate new object for every object present in the collection based on some function than we should go for mapping mechanism.
+ - We can implement mapping by using map() method of stream interface
+ - public Stream map(Function <T , R> f)
+ - Example: stream s1 = c.stream().map(i->i*2);
 
 
+**Processing**
+ 1. Processing by collect() method :
+     - This method collects the elements from the stream and adding to the specified collection
+     - Example: AL<String> l = new AL<String>();
+                List<String> l1 = l.stream().filter(s->s.length()>=9).collect(Collectors.toList());
+```
+package collect;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
+public class StreamDemo2 {
+	public static void main(String[] args) {
+		ArrayList<String> l = new ArrayList<>();
+		l.add("Pawan");
+		l.add("Raviteja");
+		l.add("Chiranjeevi");
+		l.add("Venkatesh");
+		l.add("Nagarajuna");
+		System.out.println(l);
+		List<String> l1 = l.stream().filter(s->s.length()>=9).collect(Collectors.toList());
+		System.out.println(l1);
+                List<String> l2 = l.stream().map(s->s.toUpperCase()).collect(Collectors.toList());
+		System.out.println(l2);
+	}
+}
+```
+ 2. Processing by count() method :
+     - This method returns the number of elements present in Stream
+     - public long count()
+     - Example : long count = l.stream().filter(s->s.length()>=9).count();
+```
+package collect;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
+public class StreamDemo2 {
+	public static void main(String[] args) {
+		ArrayList<String> l = new ArrayList<>();
+		l.add("Pawan");
+		l.add("Raviteja");
+		l.add("Chiranjeevi");
+		l.add("Venkatesh");
+		l.add("Nagarajuna");
+		System.out.println(l);
+		List<String> l1 = l.stream().filter(s->s.length()>=9).collect(Collectors.toList());
+		System.out.println(l1);
+		
+		List<String> l2 = l.stream().map(s->s.toUpperCase()).collect(Collectors.toList());
+		System.out.println(l2);
+		
+		long count = l.stream().filter(s->s.length()>=9).count();
+		System.out.println("The number of String whose length is greater than 9 is:"+ count);
+	}
+}
+```
 
+ 3. Processing by sorted() method :
+     - We can use sorted() method to sort elements inside stream.
+     - We can sort either based on default natural sorting order or based on our own Customised Sorting Order specified by Comparator object
+     -  1. sorted() -> For default natural sorting order
+        2. sorted(Comaprator c) -> For customised Sorting order
 
+```
+package collect;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
+public class StreamSortingDemo {
+	public static void main(String[] args) {
+		ArrayList<Integer> l = new ArrayList<>();
+		l.add(0);
+		l.add(10);
+		l.add(20);
+		l.add(5);
+		l.add(15);
+		l.add(25);
+    
+		List<Integer> l1 = l.stream().sorted().collect(Collectors.toList());
+		System.out.println("Default sorting order :"+l);
+		
+		List<Integer> l2 = l.stream().sorted((i1,i2)->-i1.compareTo(i2)).collect(Collectors.toList());
+		System.out.println("The customised sorting order is :"+l2);
+	}
+}
+```
+ 4. Processing by min and max methods 
+   - . min(Comparator C) - Returns minimum value according to special Comparator.
+   - . max(comparator C) - Returns maximum value according to specified comparator.
+
+```
+package collect;
+import java.util.ArrayList;
+
+public class StreamMinMaxDemo {
+	public static void main(String[] args) {
+		 ArrayList<Integer> l = new ArrayList<>();
+		 l.add(0);
+		 l.add(30);
+		 l.add(10);
+		 l.add(45);
+		 l.add(17);
+		 
+		 System.out.println(l);
+		 
+		 Integer min = l.stream().min((i1,i2)->i1.compareTo(i2)).get();
+		 System.out.println("The minimum value is:"+min);
+		 
+		 Integer max = l.stream().max((i1,i2)->i1.compareTo(i2)).get();
+		 System.out.println("The maximum vlaue is:"+max);
+
+	}
+}
+```
+
+ 5. Procesing by using forEach() method
+     - This method won't return anything
+     - This method can take Lambda expression as argument and apply that Lambda expression for each element present in the Stream.
+       
 
 
 
