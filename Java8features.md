@@ -1451,8 +1451,68 @@ Colons can be used to align columns.
 | Static Method |  isEqual() | identity()  |   |   |
 
 
+---
+
+**Streams**
+1.8v - Streams or util.streams - Nowhere related to file = applicable for collection object - used to process some bulk amount of data
+we already have Java.io Streams concept what is the difference --- Java.io Streams  = read and write some text data from file  - a sequence of characters or binary data
 
 
+What is difference between collection and stream concept ?
+
+Collection - a group of object as a single entity.
+Stream - if you want to process objects from the collection.
+
+---
+coding before streams concept :
+```
+package collect;
+import java.util.ArrayList;
+import java.util.List;
+
+public class StreamDemo {
+	public static void main(String[] args) {
+		ArrayList<Integer> l = new ArrayList<>();
+		l.add(0);
+		l.add(10);
+		l.add(20);
+		l.add(25);
+		System.out.println(l);
+		
+		List<Integer> l1 = new ArrayList<>();
+		for(Integer i1 : l) {
+			if(i1%2 ==0) {
+				l1.add(i1);
+			}
+		}	
+		System.out.println(l1);
+	}
+}
+```
+
+---
+Coding after Streams concept :
+```
+package collect;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StreamDemo {
+	public static void main(String[] args) {
+		ArrayList<Integer> l = new ArrayList<>();
+		l.add(0);
+		l.add(10);
+		l.add(20);
+		l.add(25);
+		System.out.println(l);
+		
+		List<Integer> l1 = l.stream().filter(I->I%2==0).collect(Collectors.toList());
+		System.out.println(l1);
+	}
+}
+
+```
 
 
 
