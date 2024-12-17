@@ -1444,11 +1444,11 @@ Colons can be used to align columns.
 
 | Property       | Predicate          | Function |  Consumer | Supplier |
 | ------------- |:-------------:| -----:|:-------------:|:-------------:|
-| Purpose      | right-aligned | $1600 |
-| interface Declaration    | centered      |   $12 |
-| Single Abstract Method | are neat      |    $1 |
-| default Methods | are neat      |    $1 |
-| Static Method | are neat      |    $1 |
+| Purpose      | To take some input and perform some conditional operation| To take some input and perform required operation and return the result | To consume some input and perform required operation.It won't return anything | TO Supply some value based on our requirement  |
+| interface Declaration    | interface Predicate<T>{ }   | interface Function<T,R>{} | interface Consumer<T>{}  | interface Supplier<R>{} |
+| Single Abstract Method | public boolean test(T t);  | Public R apply(T t) ; | Public void accept(T t);  | Public R get();
+| default Methods | and(),or(),negate() | andThen() , compose() |   andThen()|    |
+| Static Method |  isEqual() | identity()  |   |   |
 
 
 
