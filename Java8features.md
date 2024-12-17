@@ -1349,6 +1349,109 @@ public class PredFuncConsDemo {
 	}	
 }
 ```
+**Supplier->**
+- want to get supply from any function it wont take any input
+- No default no static methods only one method that is get().
+- Interface Supplier<R>{  get() ; }
+
+Program to provide system Date using supplier interface:
+```
+package collect;
+import java.util.Date;
+import java.util.function.Supplier;
+
+public class SupplierDemo {
+	public static void main(String[] args) {
+		Supplier<Date> s = ()->new Date();
+		System.out.println(s.get());
+
+	}
+}
+```
+Program to generate Random name using supplier:
+```
+package collect;
+import java.util.function.Supplier;
+
+public class RandomName {
+	public static void main(String[] args) {
+     Supplier<String> s=()->{		
+	     String[] s1= {"Sunny","Bunny","Chinny","Vinny"};
+	     int x = (int)(Math.random()*4);
+	     return s1[x];
+      };
+      
+      System.out.println(s.get());
+      System.out.println(s.get());
+      System.out.println(s.get());
+      System.out.println(s.get());
+	}
+}
+```
+
+Program to Supplier function to supply 6-digit Random OTP
+```
+package collect;
+import java.util.function.Supplier;
+
+public class SupplyOTP {
+	public static void main(String[] args) {
+		Supplier<String> s =()->{
+			String otp ="";
+			for(int i=0;i<6;i++) {
+				otp=otp+(int)(Math.random()*10);
+			}		
+			return otp;
+		};
+      System.out.println(s.get());
+      System.out.println(s.get());
+      System.out.println(s.get());
+      System.out.println(s.get());
+	}
+}
+```
+
+Program to get Random Password using supplier : length = 8 , 1357 - uppercase ,2468 - digits
+```
+package collect;
+import java.util.function.Supplier;
+
+public class RandomPassword {
+	public static void main(String[] args) {
+		Supplier<String> s=()->{
+			Supplier<Integer> d =()->(int)(Math.random()*10);
+			String symbols="ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$";
+			Supplier<Character> c=()-> symbols.charAt((int)(Math.random()*29));
+			String pwd="";
+			for(int i=1;i<8;i++) {
+				if(i%2==0) {
+					pwd = pwd+d.get();
+				}else {
+					pwd = pwd+c.get();
+				}
+			}
+			return pwd;
+		};
+		System.out.println(s.get());
+		System.out.println(s.get());
+		System.out.println(s.get());
+	}
+}
+```
+Comparison Table :
+
+Colons can be used to align columns.
+
+| Property       | Predicate          | Function |  Consumer | Supplier |
+| ------------- |:-------------:| -----:|:-------------:|:-------------:|
+| Purpose      | right-aligned | $1600 |
+| interface Declaration    | centered      |   $12 |
+| Single Abstract Method | are neat      |    $1 |
+| default Methods | are neat      |    $1 |
+| Static Method | are neat      |    $1 |
+
+
+
 
 
 
