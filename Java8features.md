@@ -1454,14 +1454,12 @@ Colons can be used to align columns.
 ---
 
 **Streams**
-1.8v - Streams or util.streams - Nowhere related to file = applicable for collection object - used to process some bulk amount of data
-we already have Java.io Streams concept what is the difference --- Java.io Streams  = read and write some text data from file  - a sequence of characters or binary data
-
+- 1.8v - Streams or util.streams - Nowhere related to file = applicable for collection object - used to process some bulk amount of data
+- we already have Java.io Streams concept what is the difference --- Java.io Streams  = read and write some text data from file  - a sequence of characters or binary data
 
 What is difference between collection and stream concept ?
-
-Collection - a group of object as a single entity.
-Stream - if you want to process objects from the collection.
+- Collection - a group of object as a single entity.
+- Stream - if you want to process objects from the collection.
 
 ---
 coding before streams concept :
