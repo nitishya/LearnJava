@@ -1684,11 +1684,87 @@ public class StreamMinMaxDemo {
      - This method won't return anything
      - This method can take Lambda expression as argument and apply that Lambda expression for each element present in the Stream.
        
+```
+package collect;
+import java.util.ArrayList;
 
+public class StreamForEachDemo {
+	public static void main(String[] args) {
+		ArrayList<String> I = new ArrayList<>();
+		I.add("A");
+		I.add("BB");
+		I.add("CCC");
+		
+		I.stream().forEach(s->System.out.println(s));
+                I.stream().forEach(System.out::println);
+	}
+}
+```
+ 6. Proceesing by toArray() method :
+      - We can use toArray() method to copy elements present in the stream into specified array
 
+```
+package collect;
+import java.util.ArrayList;
 
+public class StreamToArrayDemo {
 
+	public static void main(String[] args) {
+		ArrayList<Integer> l = new ArrayList<>();
+		 l.add(0);
+		 l.add(30);
+		 l.add(10);
+		 l.add(45);
+		 l.add(17);
+		 
+		 System.out.println(l);
+		 
+		 Integer[] array = l.stream().toArray(Integer[]:: new);
+		 for(Integer x:array) {
+			 System.out.println(x);
+		 }
+	}
+}
+```
 
+ 7. Stream.of() method :
+     - we can also apply Stream for group of values and for arrays.
+     - For group of values :
+         - Stream<Integer> s = Stream.of(9,99,999,9999,99999); now we can any method for this stream
+            s.forEach(System.out :: println);
+```
+package collect;
+import java.util.stream.Stream;
+
+public class StreamOfDemo {
+
+	public static void main(String[] args) {
+		Stream<Integer> s= Stream.of(9,99,999,9999,99999);
+		s.forEach(System.out::println);
+
+	}
+}
+```
+
+     - for Arrays :
+         Double[] d = {10.0,10.1,10.2,10.3,10.4};
+```
+package collect;
+import java.util.stream.Stream;
+
+public class StreamOfDemo {
+
+	public static void main(String[] args) {
+		Stream<Integer> s= Stream.of(9,99,999,9999,99999);
+		s.forEach(System.out::println);
+		
+		 Double[] d = {10.0,10.1,10.2,10.3,10.4};
+		 Stream<Double> s1 = Stream.of(d);
+		 s1.forEach(System.out::println);
+
+	}
+}
+```
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
