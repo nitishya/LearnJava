@@ -1767,6 +1767,143 @@ public class StreamOfDemo {
 ```
 
 
+**Date & Time API**
+
+before 1.8 - we have Date, Calender, TimeStamp .....but these are not more convenient
+SO to handle Date and Api effectively new API came 
+Date and TIme API => also known as Joda Time API  -- developed by joda.org
+```
+package collect;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+public class DateTImeAPIDemo {
+	public static void main(String[] args) {
+		LocalDate date = LocalDate.now();
+		System.out.println(date);
+		
+		int dd = date.getDayOfMonth();
+		int mm = date.getMonthValue();
+		int yyyy = date.getYear();
+		
+		System.out.println(dd+":"+mm+":"+yyyy);
+		System.out.printf("%d-%d-%d",dd,mm,yyyy);
+		
+		LocalTime time = LocalTime.now();
+		System.out.println(time);
+		
+		int h = time.getHour();
+		int m = time.getMinute();
+		int s = time.getSecond();
+		int n = time.getNano();
+		
+		System.out.printf("%d:%d:%d:%d",h,m,s,n);
+		}
+}
+
+```
+
+LocalDateTime -> Both date and time together .
+```
+package collect;
+import java.time.LocalDateTime;
+
+public class LocalDateTimeDemo {
+
+	public static void main(String[] args) {
+		LocalDateTime dt = LocalDateTime.now();
+		System.out.println(dt);
+		
+		int dd = dt.getDayOfMonth();
+		int mm = dt.getMonthValue();
+		int yyyy = dt.getYear();
+		
+		System.out.printf("%d:%d:%d",dd,mm,yyyy);
+	}
+}
+```
+
+How to get month after particular interval , customised operation 
+```
+package collect;
+import java.time.LocalDateTime;
+import java.time.Month;
+
+public class IntervalDateDemo {
+	public static void main(String[] args) {
+		LocalDateTime dt = LocalDateTime.of(1996,Month.MAY,28,12,45);
+		System.out.println(dt);
+		System.out.println("After Six Months :"+ dt.plusMonths(6));
+		System.out.println("Before Six Months :"+dt.minusMonths(6));
+
+	}
+}
+```
+
+DateTime to get period between Date :
+```
+package collect;
+import java.time.LocalDate;
+import java.time.Period;
+
+public class DateTimePeriodDemo {
+
+	public static void main(String[] args) {
+		LocalDate birthday  = LocalDate.of(1989, 8, 28);
+		LocalDate today = LocalDate.now();
+		Period p = Period.between(birthday, today);
+		
+		System.out.printf("Age is %d Years %d Months %d Days",p.getYears(),p.getMonths(),p.getDays());
+
+	}
+}
+```
+
+Leap Year Program using DateTime API:
+```
+package collect;
+import java.time.Year;
+import java.util.Scanner;
+
+public class DateTimeLeapYearDemo {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Year Number:");
+		int n = sc.nextInt();
+		Year y  = Year.of(n);
+		
+		if(y.isLeap()) {
+			System.out.printf("%d Year is Leap Year",n);
+		}else {
+			System.out.printf("%d Year is Not Leap Year",n);
+		}
+	}
+}
+```
+
+Zone Based Date TIme ----
+```
+package collect;
+
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
+public class DateTimeAPIZoneIdDemo {
+
+	public static void main(String[] args) {
+		ZoneId zone = ZoneId.systemDefault();
+		System.out.println(zone);
+		
+		ZoneId la = ZoneId.of("America/Los_Angeles");
+		ZonedDateTime zt = ZonedDateTime.now(la);
+		System.out.println(zt);
+
+	}
+}
+```
+
+
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Streams in java 
 
