@@ -1,8 +1,8 @@
 **MultiThreading -**
 
 - The ways to define a thread?
- 1. By Extending Thread Class.
- 2. By Implementing Runnable(I).
+  1. By Extending Thread Class.
+  2. By Implementing Runnable(I).
 
 - Getting and Setting name of the thread.
 - Thread Priorities
