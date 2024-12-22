@@ -34,5 +34,41 @@ The main important application areas of multi threading are
 
 When compared with old languages developing multithreaded application in java is very easy beacause java provides inbuild support for multithreading with rich api(Thread, Runnable, Thread Group...).
 
+**What is Thread?**
+A seperate flow of execution.
+for every flow of execution there is some job 
+
+We can define a thread in the following two ways
+- By extending thread class
+- By implementing runnable interface
+
+1) By Extending thread class->
+  ```
+package multiThreading;
+
+class MyThread extends Thread{
+	public void run() {    
+		
+		for(int i=0;i<10;i++) {
+			System.out.println("child method");//executed by child class
+		}	
+	}              //job of thread	
+}
+
+public class ThreadDemo {
+	public static void main(String[] args) {
+		MyThread t = new MyThread();   //thread instantiation
+		 t.start();  //starting of thread
+		 
+		 for(int i=0;i<10;i++) {
+			 System.out.println("main method");
+		 }
+	}
+}
+```
+Case 1. Thread Schedular : It is the part of JVM . It is responsible to schedule threads i.e. if multiple threads are waiting to get a chance of execution then in which order threads will be executed is decided by thread schedular.We can't expect exact algorithm from thread schedular it is varied from JVM to JVM hence we can't expect thread execution order and the output.
+Hence whenever situation comes to multithreading there is no guarantee for exact output but we can provide several possible outputs.
 
 
+
+   
