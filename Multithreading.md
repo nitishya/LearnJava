@@ -82,5 +82,66 @@ start(){
 	}
 
 ```
+Case 4.Overloading of run() method 
+Overloading of run() method is always possible but thread class start() can invoke no argument run() method the other overloaded method we have call explicityly like a normal method call.
+```
+package multiThreading;
 
-   
+class MyThread extends Thread{
+	public void run() {    
+		System.out.println("No argument run method");
+	}              //job of thread	
+	
+	public void run(int n) {    
+		System.out.println("No argument run method");
+	}              //job of thread		
+}
+
+public class ThreadDemo {
+	public static void main(String[] args) {
+		MyThread t = new MyThread();   //thread instantiation
+		 t.run();  //starting of thread		
+	}  //output : No argument run method
+}
+```
+Case 5.If we are not overriding run() method than thread class run() method will be executed which has empty implementation. Hence we wont get any output.
+
+ **Note : It is highly recommended to override run() method otherwise dont go for overriding concept**
+
+Case 6. Override Start()
+If we override start() method than our start method will be executed just like a normal method call and new thread wont be created.
+
+**Note :It is recommended to not override start() method otherwise dont go for multithreading concept **
+```
+package multiThreading;
+
+class MyThread extends Thread{
+	
+	
+	public void start() {
+		super.start();	
+		System.out.println("start method");
+	}
+	
+	public void run() {    
+		
+		for(int i=0;i<10;i++) {
+			System.out.println("child method");//executed by child class
+		}	
+	}              //job of thread		
+}
+
+public class ThreadDemo {
+	public static void main(String[] args) {
+		MyThread t = new MyThread();   //thread instantiation
+		 t.run();  //starting of thread
+		 
+		 for(int i=0;i<10;i++) {
+			 System.out.println("main method");
+		 }
+	}
+}
+```
+Case 6. 
+![image](https://github.com/user-attachments/assets/c0ff2298-0069-4979-9ed9-1639c6070491)
+
