@@ -69,6 +69,18 @@ public class ThreadDemo {
 Case 1. Thread Schedular : It is the part of JVM . It is responsible to schedule threads i.e. if multiple threads are waiting to get a chance of execution then in which order threads will be executed is decided by thread schedular.We can't expect exact algorithm from thread schedular it is varied from JVM to JVM hence we can't expect thread execution order and the output.
 Hence whenever situation comes to multithreading there is no guarantee for exact output but we can provide several possible outputs.
 
+Case 2. In the case of t.start() a new thread will be created which is responsible for the execution of run() method but 
+In the case t.run() a new thread wont be created and run method will be executed just like a normal method call by main thread hence in the above program if we replace t.start() with t.run() than the output is child thread..10 main thead ...10 this total output produced by only main thread.
 
+Case 3. Importance of Thread Class Start()
+Thread class start() is responsible to register the thread with thread schedular and all other mandatory activities.Hence without executing thread class start() method there is no chance of starting a new thread in java due to this thread class start method is considered as Heart of multithreading
+```
+start(){
+      1. Register this thread with the Thread Schedular 
+      2. Perform all other mandatory activities
+      3. Invoke run();
+	}
+
+```
 
    
