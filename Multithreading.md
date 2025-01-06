@@ -274,3 +274,7 @@ Thread class defines the following method to get and set priority of a thread
 - public final int getPriority()
 - public final void setPriority(int P)
 - allowed values range 1-10 otherwise IllegalArgumentException. Ex-t.setPriority(17);
+
+**The Default Priority only for the main thread is 5 but for all remaining thread default priority will be inherited from parent to child i.e. whatever priority parent thread has the same priority will be there for the child thread.**
+
+
