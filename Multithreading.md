@@ -276,5 +276,43 @@ Thread class defines the following method to get and set priority of a thread
 - allowed values range 1-10 otherwise IllegalArgumentException. Ex-t.setPriority(17);
 
 **The Default Priority only for the main thread is 5 but for all remaining thread default priority will be inherited from parent to child i.e. whatever priority parent thread has the same priority will be there for the child thread.**
+```
+package multiThreading;
+class defaulThread extends Thread{
+	public void run() {
+		for(int i=0;i<10;i++) {
+			System.out.println("Child Thread");
+		}
+	}
+}
+public class DefaultPriorityDemo {
 
+	public static void main(String[] args) {
+		System.out.println(Thread.currentThread().getPriority());
+
+		defaulThread t = new defaulThread();
+	    t.setPriority(10);
+		t.start();
+		for(int i=0;i<10;i++) {
+			System.out.println("Main Thread");
+		}	
+	}
+}
+```
+
+SOme platform do not provide proper support for thread priority.
+
+**How to prevent a thread execution**
+we can prevent a thread execution by using the following methods -
+1. Yield()
+2. Sleep()
+3. Join()
+
+   **Yield() ->** = To Pause
+   Puropose - Yield method causes to pause current executing thread to give the chance for waiting thread of same priority.If there is no waiting thread or all thread have low priority than same thread can continue its execution.
+
+   - If multiple THreads are waiting from the same priority we cant  expect it depends on thread schedular.
+   - The Thread which is yielded , when it will get the chance once agin it depends on thread schedular and we cant expect exactly.
+
+**public static native void yield();**
 
