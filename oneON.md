@@ -46,3 +46,79 @@ public class Impectus {
 
 }
 ```
+
+snapshot problem 
+```
+package interview;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SnapshotArray {
+
+	private List<int[]> history;
+	private int[] array;
+	private int snapId;
+	
+	public SnapshotArray(int length) {
+		array = new int[length];
+		history = new ArrayList<>();
+		snapId = 0;
+		
+	}
+	
+	public void set(int index,int val) {
+		array[index] = val;	
+	}
+	
+	public int snap() {
+		history.add(array.clone());
+		return snapId++;
+	}
+	
+	public int get(int index,int snap_id) {
+		return history.get(snap_id)[index];
+	}
+	
+	public static void main(String[] args) {	
+      //the given input ;
+	}
+
+}
+```
+
+
+get username and the post sql command 
+```
+SELECT u.username,u.email,COUNT(a.post_id) AS total_posts
+FROM users u
+JOIN activity a
+ON u.user_id = a.user_id
+WHERE a.post_date >= CURRENT_DATE - INTERVAL 30 DAY
+GROUP BY u.username,u.email
+ORDER BY total_posts DESC
+LIMIT 10;
+```       
+
+/like and /dislike 
+
+'''
+@Service
+pulic class PostService{
+
+@autowired
+private PostRepository postRepository;
+
+
+@autowired
+private ReactionRepository reactionRepository;
+
+
+//check if post valid 
+public boolean isPostValid(Long postId){
+return postRepository.existById(postId);
+}
+
+//get likes and dislikes using streams 
+
+
