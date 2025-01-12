@@ -114,11 +114,7 @@ private PostRepository postRepository;
 private ReactionRepository reactionRepository;
 
 
-//check if post valid 
-public boolean isPostValid(Long postId){
-return postRepository.existById(postId);
-}
-
-//get likes and dislikes using streams 
+//like a post 
+public STring 
 
 
