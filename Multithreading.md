@@ -315,4 +315,5 @@ we can prevent a thread execution by using the following methods -
    - The Thread which is yielded , when it will get the chance once agin it depends on thread schedular and we cant expect exactly.
 
 **public static native void yield();**
+![image](https://github.com/user-attachments/assets/4a6fe919-91a6-4c73-aa8d-241b8c1c01bd)
 
