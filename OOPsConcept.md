@@ -73,4 +73,7 @@ public abstract class AbstractClassDemo {
 }
 ```
 **Abstract class vs Abstract method**
-1. 
+1. If a class contain atleast one abstract method than definitely that class should be declared as abstract.
+2. We can declare a class abstract even if it don't contain any abstract method.
+3. For every method in the abstract class the child class should provide implementation.
+4. 
