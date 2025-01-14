@@ -39,3 +39,38 @@ But for inner level class Modifiers are - 8
 
 Public - It is accessible in same package as well as outside the package also
 Default - If a class have no access modifier means it can be only accessible in the same package and we cant access the class outside the package.
+
+**Abstract**
+1. Abstract modifier are applicable for methods ✔️
+2. Abstract modifier are applicable for class ✔️
+3. Abstract modifier are not applicable for variable ❌
+
+Abstract Methods 
+- If we dont know about implementation we can declare that method as abstract.
+- Abstract method have only declaration not implementation.So it ends with semicolon not with curly braces.
+- Child class is responsible for its implementation.
+
+**Which will give error?**
+1. public abstract void m1(){}; ❌
+2. public void m1(); ❌
+3. public abstract void m1(); ✔️
+4. public void m1(){}; ✔️
+
+Abstract Class
+- Sometimes when class implementation is not complete such type of partially implemented/completed class we have to declare it as Abstract.
+- Noone is allowed to create its object.
+- Noone can call its methods
+- **For Abstract classes object creation is not possible.**
+```
+package oopsConcept;
+
+public abstract class AbstractClassDemo {
+
+	public static void main(String[] args) {
+		AbstractClassDemo d = new AbstractClassDemo();
+   //Cannot instantiate the type AbstractClassDemo
+	}
+}
+```
+**Abstract class vs Abstract method**
+1. 
