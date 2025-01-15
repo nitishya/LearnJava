@@ -76,4 +76,12 @@ public abstract class AbstractClassDemo {
 1. If a class contain atleast one abstract method than definitely that class should be declared as abstract.
 2. We can declare a class abstract even if it don't contain any abstract method.
 3. For every method in the abstract class the child class should provide implementation.
-4. 
+
+Member Modifier ->
+- public : can acess it anywhere within same package outside package within class outside class.
+- If a member is public then it accessible but make sure its class is also public than only you can access it outside the class.
+- If a member declared as default we can acess that only in current package.
+- If a memeber declared as private than it is acessible only in the same class.
+
+**Data Members : variable should be private**
+**Methods : public -> Make it accessible by the public for services**
