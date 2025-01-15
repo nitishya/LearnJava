@@ -83,5 +83,5 @@ Member Modifier ->
 - If a member declared as default we can acess that only in current package.
 - If a memeber declared as private than it is acessible only in the same class.
 
-**Data Members : variable should be private**
-**Methods : public -> Make it accessible by the public for services**
+- **Data Members : variable should be private**
+- **Methods : public -> Make it accessible by the public for services**
