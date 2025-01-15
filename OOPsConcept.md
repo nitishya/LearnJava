@@ -85,3 +85,4 @@ Member Modifier ->
 
 - **Data Members : variable should be private**
 - **Methods : public -> Make it accessible by the public for services**
+- Protected : within the current package anywhere you can access but from outside package only in the child class.
