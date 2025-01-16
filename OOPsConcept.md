@@ -86,3 +86,26 @@ Member Modifier ->
 - **Data Members : variable should be private**
 - **Methods : public -> Make it accessible by the public for services**
 - Protected : within the current package anywhere you can access but from outside package only in the child class.
+- Protected member outside package you can acess only in the Child classes and compulsory we should use child class reference only.
+
+**PRIVATE < DEFAULT < PROTECTED < PUBLIC**
+
+---
+**Interface**
+- Any service requirement specification(SRS).
+- Any contract between client and Service Provider.
+- 100% pure abstract class.❌ after 1.9 version
+```
+interface Interf {
+  public void m1();
+  public void m2();
+}
+
+class ServiceProvider implements Interf{
+ public void m1(){ }
+
+ public void m2(){ }
+}
+```
+- While overriding we can not reduce the scope of method.
+- Whenever we are providing implementation for each and every abstract method.
