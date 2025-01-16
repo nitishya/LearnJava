@@ -109,3 +109,14 @@ class ServiceProvider implements Interf{
 ```
 - While overriding we can not reduce the scope of method.
 - Whenever we are providing implementation for each and every abstract method.
+
+
+**OOPS CONCEPT**
+1. Data Hiding
+   - Outside person should not acess our internal data directly.
+   - By declaring member private we can achieve data hiding.And can get 
+     using public methods.
+   - Advantage : Security
+
+2. Abstraction
+   - Hiding internal implementation
