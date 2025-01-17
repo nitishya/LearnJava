@@ -155,3 +155,12 @@ class ServiceProvider implements Interf{
 
 
   **Super class of all java classes is -> OBJECT**
+
+  **Inheritence Types**
+    - Single Inheritence   -> Single child class extends single parent.
+    - Multiple Inheritence❌ -> A single class extends multiple parent 
+      class 
+    - Multi level Inheritence -> single child class extend A and A extends B
+    - Hierarchical Inheritance -> From a single parent class we are 
+      creating multiple child class.
+    - Hybrid Inheritance ❌-> Using a group of inheritance simultaneously
