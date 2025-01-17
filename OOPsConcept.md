@@ -142,3 +142,16 @@ class ServiceProvider implements Interf{
 **Tightly Encapsulated class**
 - If and only if every variable present inside the class is private than 
   such type of class is said to be tightly encapsulated.
+4. Inheritance
+   - IS-A Relationship
+   - Code Reusability
+   - extends keyword
+   - Whatever member parents have we can use it in child class we are not 
+     required to redefine it.
+   - Whatever method in child class is not available to parent class.
+   - Parent reference can be used to hold child class object but by using 
+     that reference we can't call child specific method.
+   - Child reference can't be used to hold parent object.
+
+
+  **Super class of all java classes is -> OBJECT**
