@@ -119,4 +119,26 @@ class ServiceProvider implements Interf{
    - Advantage : Security
 
 2. Abstraction
-   - Hiding internal implementation
+   - Hiding internal implementation and highlight the set of services that is offered.
+   - Advantage : Security
+   - Advantage : ENhancement become easy.
+   - Advantage : Maintainability improved.
+   - Advantage : Modularity improved.
+
+3. Encapsulation
+   - Grouping data members and corresponding methods into a single unit is 
+     called encapsulation.
+   - Data Hiding + Abstraction
+   - Hiding Data behind methods is the concept of Encapsulation.
+   - declare every data members as private and provide getter and setter 
+     for every data member.
+   - ADvantage: Security
+   - Advantage : Enhancement becomes easy
+   - Advantage : Maintainability become easy
+   - Disadvantage : Increase in code length -> Performance down- as we need 
+     getter setter for every data member and validation is required for 
+     every data member.
+
+**Tightly Encapsulated class**
+- If and only if every variable present inside the class is private than 
+  such type of class is said to be tightly encapsulated.
