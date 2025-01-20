@@ -169,3 +169,10 @@ class ServiceProvider implements Interf{
 **Method Signature**
 - In java method signature doesnt include return type.
 - 
+
+**Method overloading**
+- Compiler is responsible to perform method resolution
+- overloading is also known as compile-time polymorphism , static polymorphism and early binding.
+- ![image](https://github.com/user-attachments/assets/3686fc7b-d6d6-4e96-bd04-23b94d2f8a36)
+- In overloading method if exact match is not available than it will promote the argument to next level if it is available than it will get chance if it is not available again promoting to next level if it is matched to all possible method still match not found than only we will get compile time error.This is called automatic promotion in overloading.
+- 
