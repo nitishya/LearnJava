@@ -280,3 +280,25 @@ public class Fibanacci {
 	}
 }
 ```
+Leet code accepted code :
+```
+public class Fibanacci {
+    public int fib(int n) {
+    	if(n == 0) return 0;
+    	if(n ==1) return 1;
+    	
+    	int a=0,b=1;
+    	
+    	for(int i=2;i<=n;i++) {
+    		int c = a + b;  //Fn = Fn-1 + Fn-2;
+    		a = b;  //move the previous fibanacci number 
+    		b = c;  //update the new fibanacci number
+    	}
+    	return b; //b holds the calue of F(n)
+    }
+	public static void main(String[] args) {
+		Fibanacci f = new Fibanacci();
+		System.out.println(f.fib(5));
+	}
+}
+```
