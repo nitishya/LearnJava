@@ -580,3 +580,83 @@ public class SquareAndSortArray {
 
 }
 ```
+**11. Running sum of 1d Array**
+
+Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
+Return the running sum of nums.
+Example 1:
+Input: nums = [1,2,3,4]
+Output: [1,3,6,10]
+Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4].
+
+Psuedo code --
+Function runningSum(nums):
+    Initialize an empty array runningSum to store the results
+    Initialize a variable sum = 0 to track the cumulative sum
+
+    For each element num in nums:
+        sum = sum + num     // Add the current number to the running sum
+        Append sum to the runningSum array
+
+    Return runningSum
+
+
+**My approach**
+```
+public class RunningSumArray {
+	public int[] runningSum(int[] nums) {
+		int[] runningSum = new int[nums.length];
+		
+		for(int i=0;i<nums.length;i++) {
+			int sum = 0;
+			
+			for(int j=0;j<=i;j++) {
+				sum += nums[j];
+				
+			}
+			runningSum[i] = sum;
+		}
+		return runningSum;
+	}
+	public static void main(String[] args) {
+		RunningSumArray rn = new RunningSumArray();
+		int[] nums = {1,2,3,4,5};
+		int[] result = rn.runningSum(nums);
+		 System.out.print("Running sum: [");
+	        for (int i = 0; i < result.length; i++) {
+	            System.out.print(result[i] + (i < result.length - 1 ? ", " : ""));
+	        }
+	        System.out.println("]");		
+
+	}
+}
+```
+
+Now we will optimise this code.
+```
+public class RunningSumArray {
+	public int[] runningSum(int[] nums) {
+		int[] runningSum = new int[nums.length];
+		
+		int sum = 0;
+		
+		for(int i=0;i<nums.length;i++) {
+			sum += nums[i];
+			runningSum[i] = sum;
+		}
+		return runningSum;
+	}
+	public static void main(String[] args) {
+		RunningSumArray rn = new RunningSumArray();
+		int[] nums = {1,2,3,4,5};
+		int[] result = rn.runningSum(nums);
+		 System.out.print("Running sum: [");
+	        for (int i = 0; i < result.length; i++) {
+	            System.out.print(result[i] + (i < result.length - 1 ? ", " : ""));
+	        }
+	        System.out.println("]");		
+
+	}
+}
+```
+
