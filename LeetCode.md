@@ -303,3 +303,184 @@ public class Fibanacci {
 	}
 }
 ```
+**6. Buy and sell Stock**
+You are given an array prices where prices[i] is the price of a given stock on the ith day.
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+Example 1:
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+
+
+**My approach**
+```
+public class StockSell {
+
+	public static void main(String[] args) {
+		//get array 
+		//buy the stock
+		//traverse the array after stock buy date 
+		//if greater value found sell it else return zero no profit 
+	    int[] prices = {7, 1, 5, 3, 6, 4};
+	    
+	    int maxProfit =0;
+	    
+	    for(int i=0; i< prices.length;i++) {
+	    	for(int j = i+1;j < prices.length; j++) {
+	    		int profit = prices[j] - prices[i];
+	    		
+	    		if(profit>maxProfit) {
+	    			maxProfit = profit;
+	    		}
+	    	}
+	    }
+
+	    System.out.println("Maximum Profit: " + maxProfit);
+	}
+
+}
+```
+Now optimising it for only one for loop 
+Time complexity -O(n)
+Space complexity - O(1)
+```
+public class StockSell {
+
+	public static void main(String[] args) {
+	    int[] prices = {7, 1, 5, 3, 6, 4};
+
+            //varible to store the maximium profit 
+	    int maxProfit =0;
+            //varible to store minimum price encountered so far 
+	    int minPrice = Integer.MAX_VALUE;
+	    //loop through array to calculate maximum profit 
+	    for(int i=0; i< prices.length;i++) {
+            //update minPrice if the current price is lower than the previous minPrice
+	    	if(prices[i] < minPrice) {
+	    		minPrice = prices[i];
+	    	}
+             //calculate the profit if we sold at current price	
+	    	int profit = prices[i] - minPrice;
+	    	//update maxProfit if the current profit is higher than previous maxProfit
+	    	if(profit>maxProfit) {
+	    		maxProfit = profit;	
+	    	}
+	    }
+	    System.out.println("Maximum Profit: " + maxProfit);
+	}
+}
+```
+**7. Buy and sell Stock II**
+
+You are given an integer array prices where prices[i] is the price of a given stock on the ith day.
+
+On each day, you may decide to buy and/or sell the stock. You can only hold at most one share of the stock at any time. However, you can buy it then immediately sell it on the same day.
+
+Find and return the maximum profit you can achieve.
+
+Example 1:
+
+Input: prices = [7,1,5,3,6,4]
+Output: 7
+Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.
+Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
+Total profit is 4 + 3 = 7.
+
+**My Approach**
+```
+public class StockSell {
+
+	public static void main(String[] args) {
+	    int[] prices = {7, 1, 5, 3, 6, 4};
+	    
+	    int maxProfit =0;
+	        for(int i=1;i< prices.length;i++) {
+	        	if(prices[i] > prices[i-1]) {
+	        		maxProfit += prices[i] - prices[i-1];
+	        	}
+	    }
+	    System.out.println("Maximum Profit: " + maxProfit);
+	}
+}
+```
+
+**8. Majority Element**
+Given an array nums of size n, return the majority element.
+
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+Example 1:
+Input: nums = [3,2,3]
+Output: 3
+Example 2:
+
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+ 
+**My Approach**
+```
+public class MajorityElement {
+
+	public int majorityElement(int[] nums) {
+		int n=nums.length;
+		for(int i=0;i<n;i++) {
+			int count = 0;
+			for(int j =0;j<n;j++) {
+				if(nums[j]==nums[i]) {
+					count++;
+				}
+			}
+			if(count > n/2) {
+				return nums[i];
+			}
+		  }		
+			return -1;
+		}
+	public static void main(String[] args) {
+		
+		MajorityElement mj = new MajorityElement();
+		
+		int[] nums1 = {3,2,3};
+		System.out.println(mj.majorityElement(nums1));
+
+	}
+
+}
+```
+
+Now we will reduce the space complexity and time complexity to linear time ;
+we will use BOYER MOORE Voting algorithm for this .
+
+```
+public class MajorityElement {
+
+	public int majorityElement(int[] nums) {
+		    int candidate = nums[0];
+		    int count = 1;
+		    
+		    for(int i=1;i<nums.length;i++) {
+		    	if(count == 0) {
+		    		candidate = nums[i];
+		    		count = 1;
+		    	}else if(nums[i] == candidate) {
+		    		count++;
+		    	}else {
+		    		count--;
+		    	}
+		    }
+			return candidate;
+}
+	public static void main(String[] args) {
+		
+		MajorityElement mj = new MajorityElement();
+		
+		int[] nums1 = {2,2,1,1,1,2,2};
+		System.out.println(mj.majorityElement(nums1));
+
+	}
+}
+```
+
