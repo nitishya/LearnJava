@@ -484,3 +484,99 @@ public class MajorityElement {
 }
 ```
 
+**9. RemoveDuplicate from array**
+Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
+
+Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things:
+
+Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
+Return k.
+Custom Judge:
+
+The judge will test your solution with the following code:
+
+int[] nums = [...]; // Input array
+int[] expectedNums = [...]; // The expected answer with correct length
+
+int k = removeDuplicates(nums); // Calls your implementation
+
+assert k == expectedNums.length;
+for (int i = 0; i < k; i++) {
+    assert nums[i] == expectedNums[i];
+}
+If all assertions pass, then your solution will be accepted.
+
+ **My Approach**
+```
+public class RemoveDupArray {
+    public int removeDuplicates(int[] nums) {
+    	if(nums.length==0) {
+    		return 0;
+    	}
+    	int k = 1;
+    	
+    	for(int i=1;i<nums.length;i++) {
+    		if(nums[i]!= nums[i -1]) {
+    			nums[k] = nums[i];
+    			k++;
+    		}
+    	}
+    	return k;
+    }
+	
+	public static void main(String[] args) {	
+         RemoveDupArray r = new RemoveDupArray();    
+         int[] nums = {1, 1, 2, 2, 3, 4, 4, 5};     
+         int k = r.removeDuplicates(nums);
+         System.out.println("Number of unique elements: " + k);
+         System.out.print("Array after removing duplicates: [");
+         for (int i = 0; i < k; i++) {
+             System.out.print(nums[i] + (i < k - 1 ? ", " : ""));
+         }
+         System.out.println("]");
+	}
+}
+```
+
+**10. Square of a array**
+
+Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+
+Example 1:
+Input: nums = [-4,-1,0,3,10]
+Output: [0,1,9,16,100]
+Explanation: After squaring, the array becomes [16,1,0,9,100].
+After sorting, it becomes [0,1,9,16,100].
+
+**My Approach**
+```
+public class SquareAndSortArray {
+
+	public int[] sortedSquares(int[] nums) {
+		int n = nums.length;
+		for(int i=0;i<n;i++) {
+			nums[i]=nums[i]*nums[i];
+		}
+		
+		for(int i=0;i<n-1;i++) {
+			for(int j = 0;j<n-i-1;j++) {
+				if(nums[j]>nums[j+1]) {
+					int temp = nums[j];
+					nums[j] = nums[j+1];
+					nums[j+1] = temp;
+				}
+			}
+		}
+		return nums;
+	}
+	public static void main(String[] args) {
+		SquareAndSortArray sol = new SquareAndSortArray();
+		int[] nums1 = {-4,-1,0,3,10};
+		int[] result = sol.sortedSquares(nums1);
+		for(int num: result) {
+			System.out.print(num+" ");
+		}
+	}
+
+}
+```
