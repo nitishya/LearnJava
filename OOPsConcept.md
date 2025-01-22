@@ -169,7 +169,8 @@ class ServiceProvider implements Interf{
 **Method Signature**
 - In java method signature doesnt include return type.
 - 
-
+**Polymorphism ->**
+  - one name but many forms.
 **Method overloading**
 - Compiler is responsible to perform method resolution
 - overloading is also known as compile-time polymorphism , static polymorphism and early binding.
@@ -263,3 +264,21 @@ public class OriridingDemo {
 }
 ```
 - In overriding method  resolution always takes care by JVM based on runtime object. thats why it is known as runtime polymorphism/dynamic/late binding.
+
+**Rules of method overriding**
+- Method names numst be same
+- Argument type must be same
+- Return type must be same until 1.4 V after that co-variant type is also allowed.Child types of parent object return type is allowed.co-variant is applicable only for object types not for primitive types.
+- We can compile a java program according to version by using **javac -source 1.4 Name.java**
+- overriding concept is not applicable for private method of parent class.
+- overriding concept is not applicable for **public final method** in parent class.**Final method we cant override**
+- While overriding we can't reduce the scope of the acesss modifier but we can increase the scope.
+- **PRIVATE<DEFAULT<PROTECTED<PUBLIC**
+- if the child class throw any checked exception than parent class should throw either checked or its parent.
+- Static to non-static and vice-versa overriding is not possible.
+- If both parent and child methods are static than it can be overriding but than it is called method hiding concept.So method resolution is taken care by compiler that is based on reference type.
+- Var-Arg method cant be overridden by a normal method if you do so it will take overloading not overriding.
+- Overriding concept is applicable only for methods not for variables.Variable resolution is always taken care by compiler based on referance type.And it same for instance and non instance /static or non static variable.
+
+
+**3 pillars of OOPS are - Encapsulation(Security),Inheritance(reusability),Polymorphism(flexibility)**
