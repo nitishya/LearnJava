@@ -175,4 +175,91 @@ class ServiceProvider implements Interf{
 - overloading is also known as compile-time polymorphism , static polymorphism and early binding.
 - ![image](https://github.com/user-attachments/assets/3686fc7b-d6d6-4e96-bd04-23b94d2f8a36)
 - In overloading method if exact match is not available than it will promote the argument to next level if it is available than it will get chance if it is not available again promoting to next level if it is matched to all possible method still match not found than only we will get compile time error.This is called automatic promotion in overloading.
-- 
+- t.m1(null) which will get chance in this case , String version will get the chance.
+```
+public class NullValueOverloading {
+
+	public void m1(Object o) {
+		System.out.println("Object version");
+	}
+	public void m1(String s) {
+		System.out.println("String version");
+	}
+        //var arg method
+	public void m1(int... i) {
+		System.out.println("Var arg method");
+	}
+	
+	public static void main(String[] args) {
+		 NullValueOverloading n = new NullValueOverloading();
+		 n.m1(new Object());
+		 n.m1("Nitish");
+		 n.m1(null);
+
+	}
+}
+```
+- in case string version is not there than object version will called.
+- SO child class object will get more priority than parent class object.
+- In overloading the highest priority is exact matching.
+- In case of null suppose the argument are String and Stringbuffer , as both are child class in this case compiler will give error.
+- General method vs Var arg method , general method will get chance as in java old will always win.Var arg will always have least priority.
+- In overloading method resolution is always based on resolution type , object type dont play any role.runtime object is dummy in overloading.
+```
+class Animal{}
+class Monkey extends Animal{}
+public class ParentVsChildOverloading {
+    public void m1(Animal a) {
+    	System.out.println("Animal Version");
+    }
+    public void m1(Monkey m) {
+    	System.out.println("Monkey version");
+    }
+	public static void main(String[] args) {
+	    ParentVsChildOverloading p = new ParentVsChildOverloading() ;
+	    Animal a = new Animal();
+	    p.m1(a);
+	    Monkey m = new Monkey();
+	    p.m1(m);
+	    Animal k = new Monkey();
+	    p.m1(k);
+	   // Monkey j = new Animal();
+	   // p,m1(j); will give compile time error.
+     
+	}
+}
+```
+
+---
+**Method Overriding**
+```
+class Parent{
+	public void Property() {
+		System.out.println("Cash Gold + Land");
+	}
+	//overridden method
+	public void marry() {
+		System.out.println("laxmi");
+	}
+}
+
+class Child extends Parent{
+	//overriding method
+	public void marry() {
+		System.out.println("Katrina");
+	}
+}
+public class OriridingDemo {
+
+	public static void main(String[] args) {
+		Parent p = new Parent();
+		p.marry();  // parent class marry
+		Child c = new Child();
+		c.marry();  //child class marry
+		Parent k = new Child();
+		k.marry();  //child class marry
+         
+	}
+}
+```
+- In overriding method  resolution always takes care by JVM based on runtime object. thats why it is known as runtime polymorphism/dynamic/late binding.
