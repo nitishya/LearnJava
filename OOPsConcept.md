@@ -282,3 +282,16 @@ public class OriridingDemo {
 
 
 **3 pillars of OOPS are - Encapsulation(Security),Inheritance(reusability),Polymorphism(flexibility)**
+
+---
+
+**Object Type CAsting**
+
+
+---
+**Contructors -**
+- New Keyword is responsible to create object .
+- Student s1 = new Student("Nitish",101);
+- for every object separate copy of instance varible will be created.
+- constructor is responsible for providing values for our object instance variables.
+- 
