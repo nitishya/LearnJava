@@ -294,4 +294,22 @@ public class OriridingDemo {
 - Student s1 = new Student("Nitish",101);
 - for every object separate copy of instance varible will be created.
 - constructor is responsible for providing values for our object instance variables.
-- 
+- contructor job is to perform initialisation.
+- after creating an object immidiately contructor will be executed.
+- for every object constructor will be executed separately.
+
+  **Rule for constructor**
+  1. Name of the contructor and name of the class must be same.
+  2. Return type concept not applicable for contructors.if return type provided it will be treated as method.
+  3. Only applicable modifier for the contructors are public,default,protected,private.If final,static,synchronized is given it will provide compile time error.
+  4. Singeleton classes - In any java class if we are allowed to create only one object ,such type of concept is called as singeleton classes.Internally to implement singeleton classes private modifier will be used on constructors.
+  5. Every class in java should contain atleast one constructor it may be default constructor or it may be your own constructor but not both simultaneously.
+  6. If compiler will generate default constructor than it will be No-Arg Constructor.but every no-arg constructor is not default constructor.
+  7. Acess modifer of default constructor is same as class modifier.{only for deafult,public}.
+  8. Default constructor contains only one line that is super().It is a no argument call to super class constructor.
+  9. When constructor should be appropriate ,it should have first line -super() or this.
+  10. Call to super() must be first statement in constructor.We can use super() or this statement in first line not both simultaneously.
+ 
+This()/Super()   - we can use inside constructors only 
+                 - we should use in first line only 
+		 - we can use only one at a time but not both simultaneously.
