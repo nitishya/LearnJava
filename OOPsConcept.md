@@ -313,3 +313,56 @@ public class OriridingDemo {
 This()/Super()   - we can use inside constructors only 
                  - we should use in first line only 
 		 - we can use only one at a time but not both simultaneously.
+
+**Note - Super()/this()   vs  super/this**
+- Super()/this() are constructor calls
+- super/this are keywords in java to refer super class instance members and current class instance members.
+- Inside static area we can not use super and this keyword.
+```
+class Sup{
+	String s = "Parent Variable";
+}
+
+class Thiss extends Sup{
+	String s = "Child variable";
+	public void m1() {
+		System.out.println(s);       //child variable
+	    System.out.println(this.s);  //child variable 
+	    System.out.println(super.s); //Parent variable
+	}
+}
+
+public class SuperKeywordDemo {
+
+	public static void main(String[] args) {
+	    Thiss t = new Thiss();
+	    t.m1();
+	}
+}
+```
+- Overloading of contructors is possible.
+- Inheritence and overriding is not applicable for constructors.
+- Every class in java including abstract class have constructors but interfaces dont have constructors.because every variable inside Interface is public static final.i.e there is no chance of existing single instance variable.
+
+**Stack Overflow error**
+```
+public class RecursiveMethodDemo {
+	
+	public static void m1() {
+		m2();
+	}
+	public static void m2() {
+		m1();
+	}
+	
+	public static void main(String[] args) {
+		m1();
+		System.out.println("Hello");
+	}
+
+}
+```
+- Recursive method call will give Stack over flow error
+- but Recursive constructor call will give compile time error.
+- If we are writing argumented constructor in class ,It is highly recommended to write no-arg constructor in child class.
+- If the parent class constructor throws any exception so we have to handle it in child class constructor.
