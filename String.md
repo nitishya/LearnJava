@@ -18,3 +18,25 @@ public class StringVsBufferDemo {
 	}
 }
 ```
+**Equals or ==**
+```
+public class EqualsDemo {
+
+	public static void main(String[] args) {
+		String s1 = new String("Nitish");
+		String s2 = new String("Nitish");
+		
+		System.out.println(s1==s2); //false
+		System.out.println(s1.equals(s2)); //true
+		
+		
+		StringBuffer sb1 = new StringBuffer("Nitish");
+		StringBuffer sb2 = new StringBuffer("Nitish");
+		
+		System.out.println(sb1==sb2); //false
+		System.out.println(sb1.equals(sb2));  //false
+
+	}
+
+}
+```
