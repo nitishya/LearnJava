@@ -1,7 +1,8 @@
-f**String**
+**String**
 - In any java project in 1000 objects , over 900 are string object.
 - String objects are immutable,StringBuffer objects are mutable.
 - immutable means non-changeable i.e. you cant change.
+- all immutable object including String are thread safe.
 - once string object is created than we can't change its content.
 ```
 public class StringVsBufferDemo {
