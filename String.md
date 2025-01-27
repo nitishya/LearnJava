@@ -356,3 +356,6 @@ why - Every method in StringBuffer is synchronised, at a time only one thread is
 ---
 ![image](https://github.com/user-attachments/assets/2f4d9bb4-e39d-483b-9acc-2a3e825a0268)
 ---
+
+**Method Chaining**
+sb.m1().m2().m3()......
