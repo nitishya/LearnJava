@@ -213,6 +213,7 @@ public class MethodIsEmptyDemo {
 7. public String replace(char Old,char new)
 8. public String substring(int begin) -> from begin index to end of String
 9. public String substring(int begin, int end) -> from begin index to end-1
+10. public int indesOf(char ch); ->will return the first occurance of any character only.
 ```
 public class MethodCharReplaceDemo {
 
@@ -222,6 +223,135 @@ public class MethodCharReplaceDemo {
                 String b = "abcdefg";
 		System.out.println(b.substring(3)); //from 3rd index to end //defg
                 System.out.println(b.substring(3,5));//from 3rd to end-1 //de
+                System.out.println(b.indexOf("d")); //3
 	}
 }
 ```
+11. public String toLowerCase();
+12. public String toUpperCase();
+```
+public class MethodLowerUpperDemo {
+
+	public static void main(String[] args) {
+		String s = "super";
+		System.out.println(s.toUpperCase());
+		String t = "HAPPY";
+		System.out.println(t.toLowerCase());
+
+	}
+}
+```
+---
+**Trim() method**
+- public String trim(); ->if there is any spaces at the begining of string or end of string than it will be removed but not at the middle of the String.
+```
+public class MethodTrimDemo {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your city name:");
+		String name = sc.nextLine().toLowerCase().trim();
+		if(name.equals("hyderabad")) {
+			System.out.println("Hello Hyderbadi, Adaab..");
+		}else if(name.equals("chennai")) {
+			System.out.println("Hello Madrasi, Vanakkam..");
+		}else if(name.equals("bangalore")) {
+			System.out.println("Hello kannadiga, Namaskara..");
+		}else {
+			System.out.println("Please enter valid city name");
+		}
+	}
+}
+```
+---
+Once we create a string object you are not allowed to make any changes in that object ,if we are trying to perform any changes in that object than new object is created.
+```
+public class ConceptDemo {
+
+	public static void main(String[] args) {
+		String s1 = new String("nitish"); //2
+		String s2 = s1.toString();//0
+		String s3 = s1.toLowerCase(); //0
+		String s4 = s1.toUpperCase(); //1
+		System.out.println(s1==s2);  //true
+		System.out.println(s1==s3);  //true
+		System.out.println(s1==s4);  //false
+
+	}
+}
+```
+---
+**Final vs Immutablity**
+- How to make StringBuffer as immutable -> making reference variable as final - No it is different.
+- Final = if you dont want to perform reassignment to an variable.
+- Immutable = if you dont want to perform any changes to the object.
+```
+public class FinalVsImmutableDemo {
+
+	public static void main(String[] args) {
+         final StringBuffer sb = new StringBuffer("nitish");
+         sb.append("Yadav");
+         System.out.println(sb);
+         sb = new StringBuffer("Kumar"); //will give error as final cant be assigned.
+	}
+}
+```
+
+Amount this which of the following are meaningful?
+- final variable✔️
+- final object❌
+- immutable Variable❌
+- Immutable object✔️
+---
+**StringBuffer**
+- If the content is not fixed and keep on changing never recommended to use String concept,to handle this requirement we are recommended to use StringBuffer.
+- In the case of StringBuffer you can add something in the character that is known as capacity i.e amount of character it can hold. and the character present is known as length.
+- Example - Room - 20 students present = length
+                 - 100 students can accomodate = capacity
+
+Important constructors of StringBuffer:
+- StringBuffer sb = new StringBuffer();   capacity->16 , if new element added than new capacity=(CC+1)*2=34
+```
+public class StringBufferCapacityDemo {
+
+	public static void main(String[] args) {
+		StringBuffer sb = new StringBuffer();
+		System.out.println(sb.capacity()); //default -16 
+		
+		sb.append("a bus is moving");
+		System.out.println(sb.capacity());  //default -16
+        sb.append("ra");
+		System.out.println(sb.capacity());  //capacity -34
+                StringBuffer sb1 = new StringBuffer(1000);
+		System.out.println(sb1.capacity());
+	}
+}
+```
+- StringBuffer sb = new StringBuffer(int intialcapacity);
+- StringBuffer sb = new StringBuffer(String s);
+
+Methods in SpringBuffer ->
+- public int length();
+- public int capacity();
+- public char charAt(int index);
+- public void setCharAt(int index,char newChar);
+- public StringBuffer append(String s);
+- public StringBuffer insert(int index,String s);
+- public StringBuffer delete(int begin,int end); -> delete char from beg to end-1.
+- public StringBUffer deleteCharAt(int index);
+- public StringBuffer reverse() ->only order is reversed; System.out.println(sb2.reverse());
+- public void setLength(int length); only char= length will be considered.
+- public void ensureCapacity(int capacity)->if want to increase the capacity dynamically than we require this method.
+- public void trimToSize(); ->to deallocate extra memory.
+
+**Every method in StringBuffer is synchronised, at a time only one thread is allowed to work at a time i.e Thread Safe.**
+---
+**StringBuilder**
+why - Every method in StringBuffer is synchronised, at a time only one thread is allowed to work at a time.Threads are executed one by one which will increase the waiting time of the thread which will decrease the performance of the applicacation.
+- To overcome this problem in 1.5 V String Builder came.
+- Changes in StringBuilder comparison to String buffer
+- Buffer -> Builder
+- Synchronized keyword ❌❌ removed
+---
+![image](https://github.com/user-attachments/assets/2f4d9bb4-e39d-483b-9acc-2a3e825a0268)
+---
