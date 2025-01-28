@@ -53,8 +53,10 @@ public class MethodGCDemo {
 
 The ways for requesting JVM to run GC 
 - Once  we made an object eligible for GC,it may not be destroyed immideately by GC , whenever JVM runs GC than only the object will be destroyed.but when exactly JVM runs GC it is varied from JVM to JVM instead of waiting until JVM runs GC we can request JVM to run GC programmatically but whether JVM accept our request or not there is no guarantee but most of the JVM accept our request.
+  
 - The following are two ways for requesting JVM to run GC
-   - By using System Class:System class contains static method gc() for this purpose -> System.gc();
+   - By using System Class:System class contains static method gc() for this purpose 
+     - System.gc();
    - By using Runtime class
      - Runtime r = Runtime.getRuntime();
      - r.totalMemory()
