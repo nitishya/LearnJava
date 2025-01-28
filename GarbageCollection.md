@@ -125,4 +125,29 @@ public class FinalizeDemo {
 }
 ```
 - Just before destroying a object grabage collector calls finalize method on the object which is eligible for GC than corresponding finalize method class will be executed.
-- If String class object is eligible for GC than String class finalize class will be executed.
+- If String class object is eligible for GC than String class finalize class will be executed but not FinalizeDemo class finalize method.
+- Based on our requirement we can call finalize method explicitly than it will be executed just like a normal method call and object wont be destroyed
+
+```
+public class FinalizeDemo {
+
+	public static void main(String[] args) {
+		FinalizeDemo f = new FinalizeDemo();
+		f.finalize();
+		f.finalize();
+		f= null;
+		System.gc();
+		System.out.println("end of main");
+	}
+	//this finalize method is not called.
+	public void finalize() {
+		System.out.println("Finalize method called");
+	}
+}
+
+/*output
+Finalize method called
+end of main
+Finalize method called*/
+```
+
