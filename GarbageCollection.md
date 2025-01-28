@@ -62,3 +62,45 @@ The ways for requesting JVM to run GC
      - r.totalMemory()
      - r.freeMemory()
      - r.gc()
+
+Java application can communitacate with JVM by using Runtime object.RUntime class present in java.lang package and it is a singeleton class we can create runtime object by using Runtime.getRuntime(); 
+Once we got runtime object we can call the following methods on object 
+- totalMemory -> it returns NUMBER of bytes present in the HEAP i.e heap size
+- freeMemory -> it returns NUMBER of BYTES of free memory present in the HEAP
+- gc()  -> FOr requesting JVM to run Garbage collector.
+```
+public class RuntimeGCDemo {
+
+	public static void main(String[] args) {
+		Runtime r = Runtime.getRuntime();
+		System.out.println(r.totalMemory());
+		System.out.println(r.freeMemory());
+		for(int i=1;i<=10000;i++) {
+			Date d = new Date();
+		        d = null;
+
+		}
+		System.out.println(r.freeMemory());
+		r.gc();
+		System.out.println(r.freeMemory());
+	}
+}
+```
+which of the following is appropriate method to call GC?
+1. System.gc()✔️
+2. Runtime.gc()❌
+3. (new Runtime()).gc()❌
+4. Runtime getRuntime().gc()✔️
+
+**Note-GC method present in System class is a static method whereas GC method present in Runtime class is Instance method**
+- Recommended method = Runtime.gc() why System class contains runtime internally.
+  ```
+class System{
+  public static void gc() {
+     Runtime.getRuntime().gc();
+     }
+   }  
+ ```
+So if we call runtime.gc we can skip one method in hirarchy which will reduce time. and performance will be improved.
+
+**Finalization**
