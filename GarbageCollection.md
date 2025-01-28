@@ -94,7 +94,7 @@ which of the following is appropriate method to call GC?
 
 **Note-GC method present in System class is a static method whereas GC method present in Runtime class is Instance method**
 - Recommended method = Runtime.gc() why System class contains runtime internally.
-  ```
+```
 class System{
   public static void gc() {
      Runtime.getRuntime().gc();
@@ -104,3 +104,25 @@ class System{
 So if we call runtime.gc we can skip one method in hirarchy which will reduce time. and performance will be improved.
 
 **Finalization**
+- protected void finalize() throws Throwable  ->it is present in Object class so we can override finalize() method in our class to define our own cleanup activities.
+- Just before destroying an object GC calls finalize method to perform cleanup activities.once finalize method completes automatically GC destroyes that object.
+
+1. Case I: 
+```
+public class FinalizeDemo {
+
+	public static void main(String[] args) {
+		String s = new String("nitish");
+		s = null;  //GC calls finalize method on String class
+		System.gc();
+		System.out.println("End of Main");//output - End of Main
+
+	}
+	//this finalize method is not called.
+	public void finalize() {
+		System.out.println("Finalize method called");
+	}
+}
+```
+- Just before destroying a object grabage collector calls finalize method on the object which is eligible for GC than corresponding finalize method class will be executed.
+- If String class object is eligible for GC than String class finalize class will be executed.
