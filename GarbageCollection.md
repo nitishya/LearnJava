@@ -39,3 +39,24 @@ public class MethodGCDemo {
 
 }
 ```
+    - If an method returns an object, if that returned object we capture using refrence varible than that object is not eligible for GC.If we didn't capture than it is eligible for GC.
+![image](https://github.com/user-attachments/assets/09fcfc32-b1b8-47db-989a-8b128b8f77a2)
+
+![image](https://github.com/user-attachments/assets/365c2717-b7a7-4bf7-b179-f9171296f9e7)
+
+![image](https://github.com/user-attachments/assets/bf774ae1-bb5d-4117-b65a-ffc0a9218283)
+
+4. Case IV: Island of Isolation
+![image](https://github.com/user-attachments/assets/625924ec-9471-4a04-bbad-7b961ecdedda)
+      - if an object doesn't contain reference variable it is always by default eligible for GC.
+      - If object contain different variable even though somethimes it is eligible for garbage collection like in Island of Isolation.
+
+The ways for requesting JVM to run GC 
+- Once  we made an object eligible for GC,it may not be destroyed immideately by GC , whenever JVM runs GC than only the object will be destroyed.but when exactly JVM runs GC it is varied from JVM to JVM instead of waiting until JVM runs GC we can request JVM to run GC programmatically but whether JVM accept our request or not there is no guarantee but most of the JVM accept our request.
+- The following are two ways for requesting JVM to run GC
+   - By using System Class:System class contains static method gc() for this purpose -> System.gc();
+   - By using Runtime class
+     - Runtime r = Runtime.getRuntime();
+     - r.totalMemory()
+     - r.freeMemory()
+     - r.gc()
