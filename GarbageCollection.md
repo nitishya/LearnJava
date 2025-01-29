@@ -150,4 +150,67 @@ Finalize method called
 end of main
 Finalize method called*/
 ```
+```
+public class FinalizeDemoGC {
+	static FinalizeDemoGC s;
 
+	public static void main(String[] args) throws InterruptedException {
+		FinalizeDemoGC f = new FinalizeDemoGC();
+		System.out.println(f.hashCode());
+		f=null;
+		System.gc();
+		Thread.sleep(5000);
+		System.out.println(s.hashCode());
+		s= null;
+		System.gc();
+		Thread.sleep(10000);
+		System.out.println("End of main");
+
+	}
+	
+	public void finalize() {
+		System.out.println("Finalize method called");
+		s = this;
+	}
+
+}
+```
+
+- Even though  object eligible for GC but GC calls finalize method only once.
+
+**Call GC by ourself**
+```
+public class CallGCbySelf {
+	static int count=0;
+	public static void main(String[] args) {
+	for(int i=0;i<1000000;i++) {
+		CallGCbySelf t = new CallGCbySelf();
+		t = null;
+	}
+	}
+	public void finalize() {
+	    System.out.println("Finalize method called" + ++count);
+	}	
+ }
+```
+- Start from 100 and keep increasing the value of i until GC called to destroy the object.
+- We cant expect exact behaviour of GC it is varied from JVM to JVM hence we cant provide exact answer
+    - When exactly JVM run GC
+    - in which order GC destroys eligible objects
+    - whether GC destroys all eligible object or not
+    - what is algorithm followed by GC.
+
+**Note**
+- Whenever program runs with low memory than JVM runs GC but we can't expect exactly at what time.
+- Most of the GC follows standard algorithm - MARK AND SWEEP ALGORITHM , it doesnt mean every GC follow the same algorithm.
+
+**Memory Leaks**
+- The objects which we are not using in our program and which are not eligible for GC such type of useless objects are called memory leaks
+- In our program if memory leaks present than program will be terminated by out of memory error
+- Hence if a object no longer required than it is highly recommeded to make that object eligible for GC.
+- There are some third party tools to find memory leaks-
+   - HP OVO
+   - HP J METER
+   - JPROBE
+   - Patrol
+   - IBM Tivoli
